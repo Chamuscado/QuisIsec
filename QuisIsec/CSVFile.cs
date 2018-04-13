@@ -64,7 +64,7 @@ namespace lib
         {
             try
             {
-                _reader = new StreamReader(Dir + NameFile);
+                _reader = new StreamReader(Dir + NameFile,true);
                 _encodingType = _reader.CurrentEncoding;
                 var line = _reader.ReadLine();
                 if (line != null)

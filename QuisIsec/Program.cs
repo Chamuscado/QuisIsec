@@ -16,7 +16,8 @@ namespace QuisIsec
         {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
+                //Application.Run(new QuisIsec());
+            AppManager.Start<TopController>();
             
         }
 
