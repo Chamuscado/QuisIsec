@@ -9,10 +9,44 @@ using lib;
 
 namespace QuisIsec
 {
-    public partial class QuisIsec : MetroFramework.Forms.MetroForm, IView
+    public partial class QuisIsec : MetroFramework.Forms.MetroForm, IGameView
     {
-        private List<Category> _categorys = new List<Category>();
+        private GameViewController _controller;
 
+        public void SetController(GameViewController controller)
+        {
+            _controller = controller;
+        }
+
+        public string Quest
+        {
+            get => preguntaLabel.Text;
+            set => preguntaLabel.Text = value;
+        }
+
+        public string Answer0
+        {
+            get => resposta_0.Text;
+            set => resposta_0.Text = value;
+        }
+
+        public string Answer1
+        {
+            get => resposta_1.Text;
+            set => resposta_1.Text = value;
+        }
+
+        public string Answer2
+        {
+            get => resposta_2.Text;
+            set => resposta_2.Text = value;
+        }
+
+        public string Answer3
+        {
+            get => resposta_3.Text;
+            set => resposta_3.Text = value;
+        }
 
         public Form Form => this;
 
@@ -21,108 +55,38 @@ namespace QuisIsec
             InitializeComponent();
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="nameFiles"></param>
-        /// <returns>false -> não há ficheiros</returns>
-        private bool StartDialog(out string[] nameFiles)
-        {
-            var dialog = new OpenFileDialog
-            {
-                InitialDirectory = @"D:\C#\QuisIsec\QuisIsec\bin\Debug", //@"C:\",
-                Filter = "CSVFile(*.csv)|*.csv|All files (*.*)|*.*",
-                Multiselect = true
-            };
-            var @return = dialog.ShowDialog() == DialogResult.OK;
-            nameFiles = dialog.FileNames;
-            return @return;
-        }
-
-        private void QuisIsec_Load(object sender, EventArgs e)
-        {
-            if (StartDialog(out var nameFiles))
-            {
-                foreach (var nameFile in nameFiles)
-                {
-                    var file = new CsvFile(nameFile);
-                    if (!file.FileExists() || !file.Open())
-                        continue;
-
-                    while (file.HasNextLine())
-                    {
-                        var line = file.GetNextLine();
-                        var cat = line[0];
-                        line.RemoveAt(0);
-                        var quest = line[0];
-                        line.RemoveAt(0);
-                        var i = 0;
-                        for (; i < _categorys.Count; i++)
-                        {
-                            if (string.Compare(_categorys[i].Name, cat, StringComparison.Ordinal) == 0)
-                                break;
-                        }
-
-                        if (i >= _categorys.Count)
-                        {
-                            _categorys.Add(new Category(cat));
-                        }
-
-                        if (line.All(item => item.Any()))
-                            _categorys[i].AddQuestion(new Question(quest, line));
-                    }
-
-                    _categorys.Sort();
-                    file.Close();
-                }
-
-                var cont = 0;
-                foreach (var category in _categorys)
-                {
-                    cont += category.Questions.Count;
-                }
-
-                preguntaLabel.Text = _categorys[0].Questions[0].Quest;
-                resposta_0.Text = _categorys[0].Questions[0].RightAnswer;
-                resposta_1.Text = _categorys[0].Questions[0].OthersAnswer[0];
-                resposta_2.Text = _categorys[0].Questions[0].OthersAnswer[1];
-                resposta_3.Text = _categorys[0].Questions[0].OthersAnswer[2];
-            }
-        }
-
-        public Color _BackColorQuest { get; set; } = Color.FromArgb(5, 100, 187);
-        public Color _BackColorBackPanel { get; set; } = Color.FromArgb(0, 134, 191);
-        public Color _BackColorAnswer { get; set; } = Color.FromArgb(5, 100, 187);
+        private readonly Color _backColorQuest = Color.FromArgb(5, 100, 187);
+        private readonly Color _backColorBackPanel = Color.FromArgb(0, 134, 191);
+        private readonly Color _backColorAnswer = Color.FromArgb(5, 100, 187);
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel1, _BackColorBackPanel, e);
+            PaintRoundEdges(tableLayoutPanel1, _backColorBackPanel, e);
         }
 
         private void preguntaLabel_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(preguntaLabel, _BackColorQuest, e);
+            PaintRoundEdges(preguntaLabel, _backColorQuest, e);
         }
 
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel3, _BackColorAnswer, e);
+            PaintRoundEdges(tableLayoutPanel3, _backColorAnswer, e);
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel4, _BackColorAnswer, e);
+            PaintRoundEdges(tableLayoutPanel4, _backColorAnswer, e);
         }
 
         private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel5, _BackColorAnswer, e);
+            PaintRoundEdges(tableLayoutPanel5, _backColorAnswer, e);
         }
 
         private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel6, _BackColorAnswer, e);
+            PaintRoundEdges(tableLayoutPanel6, _backColorAnswer, e);
         }
 
         private void PaintRoundEdges(Control graphElement, Color color, PaintEventArgs e)
@@ -141,7 +105,7 @@ namespace QuisIsec
 
         private GraphicsPath _getRoundRectangle(Rectangle rectangle)
         {
-            var cornerRadius = 80; // change this value according to your needs
+            var cornerRadius = 40; // change this value according to your needs
             var diminisher = 1;
             var path = new GraphicsPath();
             path.AddArc(rectangle.X, rectangle.Y, cornerRadius, cornerRadius, 180, 90);

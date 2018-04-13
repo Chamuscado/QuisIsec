@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -14,11 +15,11 @@ namespace QuisIsec
         [STAThread]
         static void Main()
         {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                //Application.Run(new QuisIsec());
-            AppManager.Start<TopController>();
-            
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            new ControlPanelController();
+            Application.Run();
+            //AppManager.Start<ControlPanelController>();
         }
 
         public static void Shuffle<T>(this IList<T> list)
@@ -33,6 +34,11 @@ namespace QuisIsec
                 list[k] = list[n];
                 list[n] = value;
             }
+        }
+
+        public static IList<T> Clone<T>(this IList<T> listToClone) where T : ICloneable
+        {
+            return listToClone.Select(item => (T)item.Clone()).ToList();
         }
     }
 }

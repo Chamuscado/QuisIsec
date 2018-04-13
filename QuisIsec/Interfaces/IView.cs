@@ -6,8 +6,5 @@ namespace QuisIsec
     {
         void Show();
         void Close();
-
-        bool Enabled { get; set; }
-        Form Form { get; }
     }
 }

@@ -287,7 +287,6 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "QuisIsec";
             this.Text = "QuisIsec";
-            this.Load += new System.EventHandler(this.QuisIsec_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
