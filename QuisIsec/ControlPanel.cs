@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using lib;
 
 namespace QuisIsec
 {
@@ -35,12 +29,70 @@ namespace QuisIsec
             var dialog = new OpenFileDialog
             {
                 InitialDirectory = @"D:\C#\QuisIsec\QuisIsec\bin\Debug", //@"C:\",
-                Filter = "CSVFile(*.csv)|*.csv|All files (*.*)|*.*",
+                Filter = @"CSVFile(*.csv)|*.csv|All files (*.*)|*.*",
                 Multiselect = true
             };
             var @return = dialog.ShowDialog() == DialogResult.OK;
             nameFiles = dialog.FileNames;
             return @return;
+        }
+
+        public string Quest
+        {
+            get => questTextBox.Text;
+            set => questTextBox.Text = value;
+        }
+
+        public string RightAnswer
+        {
+            get => Answer0TextBox.Text;
+            set => Answer0TextBox.Text = value;
+        }
+
+        public string Answer1
+        {
+            get => Answer1TextBox.Text;
+            set => Answer1TextBox.Text = value;
+        }
+
+        public string Answer2
+        {
+            get => Answer2TextBox.Text;
+            set => Answer2TextBox.Text = value;
+        }
+
+        public string Answer3
+        {
+            get => Answer3TextBox.Text;
+            set => Answer3TextBox.Text = value;
+        }
+
+        public void RefreshDataGridView(ICollection<Category> categorys)
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Categoria");
+            dataTable.Columns.Add("Numero de preguntas");
+            foreach (var category in categorys)
+            {
+                dataTable.Rows.Add(category.Name, category.Questions.Count);
+            }
+
+            CategoryListDataGridView.DataSource = dataTable;
+        }
+
+        private void newQuest_Click(object sender, EventArgs e)
+        {
+            _controller.NewQuest();
+        }
+
+        private void toGameWindow_Click(object sender, EventArgs e)
+        {
+            _controller.QuestToGameWindow();
+        }
+
+        private void ControlPanel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = _controller.CloseResquest();
         }
     }
 }
