@@ -48,6 +48,30 @@ namespace QuisIsec
             set => resposta_3.Text = value;
         }
 
+        public string Team0Name
+        {
+            get => team0Name.Text;
+            set => team0Name.Text = value;
+        }
+
+        public string Team1Name
+        {
+            get => team1Name.Text;
+            set => team1Name.Text = value;
+        }
+
+        public int Team0Points
+        {
+            get => int.Parse(team0Points.Text);
+            set => team0Points.Text = value.ToString();
+        }
+
+        public int Team1Points
+        {
+            get => int.Parse(team1Points.Text);
+            set => team1Points.Text = value.ToString();
+        }
+
         public Form Form => this;
 
         public QuisIsec()
@@ -58,6 +82,7 @@ namespace QuisIsec
         private readonly Color _backColorQuest = Color.FromArgb(5, 100, 187);
         private readonly Color _backColorBackPanel = Color.FromArgb(0, 134, 191);
         private readonly Color _backColorAnswer = Color.FromArgb(5, 100, 187);
+        private readonly Color _backColorPointsPanel = Color.FromArgb(0, 134, 191);
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -105,8 +130,8 @@ namespace QuisIsec
 
         private GraphicsPath _getRoundRectangle(Rectangle rectangle)
         {
-            var cornerRadius = 40; // change this value according to your needs
-            var diminisher = 1;
+            const int cornerRadius = 40; // change this value according to your needs
+            const int diminisher = 1;
             var path = new GraphicsPath();
             path.AddArc(rectangle.X, rectangle.Y, cornerRadius, cornerRadius, 180, 90);
             path.AddArc(rectangle.X + rectangle.Width - cornerRadius - diminisher, rectangle.Y, cornerRadius,
@@ -117,6 +142,16 @@ namespace QuisIsec
                 cornerRadius, 90, 90);
             path.CloseAllFigures();
             return path;
+        }
+
+        private void metroPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(metroPanel1, _backColorPointsPanel, e);
+        }
+
+        private void metroPanel2_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(metroPanel2, _backColorPointsPanel, e);
         }
     }
 }

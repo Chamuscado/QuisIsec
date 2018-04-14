@@ -46,9 +46,34 @@
             this.toGameWindow = new MetroFramework.Controls.MetroButton();
             this.newQuest = new MetroFramework.Controls.MetroButton();
             this.CategoryListDataGridView = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Equipa1NenhumaResposta = new MetroFramework.Controls.MetroRadioButton();
+            this.Equipa1RespostaA = new MetroFramework.Controls.MetroRadioButton();
+            this.Equipa1RespostaB = new MetroFramework.Controls.MetroRadioButton();
+            this.Equipa1RespostaC = new MetroFramework.Controls.MetroRadioButton();
+            this.Equipa1RespostaD = new MetroFramework.Controls.MetroRadioButton();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.teamName1 = new System.Windows.Forms.TextBox();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.teamName0 = new System.Windows.Forms.TextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Equipa0RespostaD = new MetroFramework.Controls.MetroRadioButton();
+            this.Equipa0RespostaC = new MetroFramework.Controls.MetroRadioButton();
+            this.Equipa0RespostaB = new MetroFramework.Controls.MetroRadioButton();
+            this.Equipa0RespostaA = new MetroFramework.Controls.MetroRadioButton();
+            this.Equipa0NenhumaResposta = new MetroFramework.Controls.MetroRadioButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryListDataGridView)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -58,6 +83,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.CategoryListDataGridView, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -218,7 +244,6 @@
             this.toGameWindow.Size = new System.Drawing.Size(127, 23);
             this.toGameWindow.TabIndex = 10;
             this.toGameWindow.Text = "Para a janela de jogo";
-            this.toGameWindow.Click += new System.EventHandler(this.toGameWindow_Click);
             // 
             // newQuest
             // 
@@ -265,6 +290,235 @@
             this.CategoryListDataGridView.Size = new System.Drawing.Size(382, 230);
             this.CategoryListDataGridView.TabIndex = 1;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.groupBox2, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(381, 229);
+            this.tableLayoutPanel3.TabIndex = 2;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.Equipa1NenhumaResposta);
+            this.groupBox2.Controls.Add(this.Equipa1RespostaA);
+            this.groupBox2.Controls.Add(this.Equipa1RespostaB);
+            this.groupBox2.Controls.Add(this.Equipa1RespostaC);
+            this.groupBox2.Controls.Add(this.Equipa1RespostaD);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(193, 48);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(185, 178);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // Equipa1NenhumaResposta
+            // 
+            this.Equipa1NenhumaResposta.AutoSize = true;
+            this.Equipa1NenhumaResposta.Location = new System.Drawing.Point(6, 19);
+            this.Equipa1NenhumaResposta.Name = "Equipa1NenhumaResposta";
+            this.Equipa1NenhumaResposta.Size = new System.Drawing.Size(76, 15);
+            this.Equipa1NenhumaResposta.TabIndex = 8;
+            this.Equipa1NenhumaResposta.TabStop = true;
+            this.Equipa1NenhumaResposta.Text = "Nenhuma";
+            this.Equipa1NenhumaResposta.UseVisualStyleBackColor = true;
+            // 
+            // Equipa1RespostaA
+            // 
+            this.Equipa1RespostaA.AutoSize = true;
+            this.Equipa1RespostaA.Location = new System.Drawing.Point(6, 39);
+            this.Equipa1RespostaA.Name = "Equipa1RespostaA";
+            this.Equipa1RespostaA.Size = new System.Drawing.Size(31, 15);
+            this.Equipa1RespostaA.TabIndex = 7;
+            this.Equipa1RespostaA.TabStop = true;
+            this.Equipa1RespostaA.Text = "A";
+            this.Equipa1RespostaA.UseVisualStyleBackColor = true;
+            // 
+            // Equipa1RespostaB
+            // 
+            this.Equipa1RespostaB.AutoSize = true;
+            this.Equipa1RespostaB.Location = new System.Drawing.Point(6, 61);
+            this.Equipa1RespostaB.Name = "Equipa1RespostaB";
+            this.Equipa1RespostaB.Size = new System.Drawing.Size(30, 15);
+            this.Equipa1RespostaB.TabIndex = 6;
+            this.Equipa1RespostaB.TabStop = true;
+            this.Equipa1RespostaB.Text = "B";
+            this.Equipa1RespostaB.UseVisualStyleBackColor = true;
+            // 
+            // Equipa1RespostaC
+            // 
+            this.Equipa1RespostaC.AutoSize = true;
+            this.Equipa1RespostaC.Location = new System.Drawing.Point(6, 82);
+            this.Equipa1RespostaC.Name = "Equipa1RespostaC";
+            this.Equipa1RespostaC.Size = new System.Drawing.Size(31, 15);
+            this.Equipa1RespostaC.TabIndex = 4;
+            this.Equipa1RespostaC.TabStop = true;
+            this.Equipa1RespostaC.Text = "C";
+            this.Equipa1RespostaC.UseVisualStyleBackColor = true;
+            // 
+            // Equipa1RespostaD
+            // 
+            this.Equipa1RespostaD.AutoSize = true;
+            this.Equipa1RespostaD.Location = new System.Drawing.Point(6, 103);
+            this.Equipa1RespostaD.Name = "Equipa1RespostaD";
+            this.Equipa1RespostaD.Size = new System.Drawing.Size(31, 15);
+            this.Equipa1RespostaD.TabIndex = 5;
+            this.Equipa1RespostaD.TabStop = true;
+            this.Equipa1RespostaD.Text = "D";
+            this.Equipa1RespostaD.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.teamName1, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.metroLabel2, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(193, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(185, 39);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // teamName1
+            // 
+            this.teamName1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.teamName1.Location = new System.Drawing.Point(95, 9);
+            this.teamName1.Name = "teamName1";
+            this.teamName1.Size = new System.Drawing.Size(87, 20);
+            this.teamName1.TabIndex = 3;
+            this.teamName1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroLabel2.Location = new System.Drawing.Point(3, 0);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(86, 39);
+            this.metroLabel2.TabIndex = 1;
+            this.metroLabel2.Text = "Equipa 1";
+            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.teamName0, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.metroLabel1, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(184, 39);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // teamName0
+            // 
+            this.teamName0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.teamName0.Location = new System.Drawing.Point(95, 9);
+            this.teamName0.Name = "teamName0";
+            this.teamName0.Size = new System.Drawing.Size(86, 20);
+            this.teamName0.TabIndex = 2;
+            this.teamName0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroLabel1.Location = new System.Drawing.Point(3, 0);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(86, 39);
+            this.metroLabel1.TabIndex = 0;
+            this.metroLabel1.Text = "Equipa 0";
+            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Equipa0RespostaD);
+            this.groupBox1.Controls.Add(this.Equipa0RespostaC);
+            this.groupBox1.Controls.Add(this.Equipa0RespostaB);
+            this.groupBox1.Controls.Add(this.Equipa0RespostaA);
+            this.groupBox1.Controls.Add(this.Equipa0NenhumaResposta);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 48);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(184, 178);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // Equipa0RespostaD
+            // 
+            this.Equipa0RespostaD.AutoSize = true;
+            this.Equipa0RespostaD.Location = new System.Drawing.Point(6, 103);
+            this.Equipa0RespostaD.Name = "Equipa0RespostaD";
+            this.Equipa0RespostaD.Size = new System.Drawing.Size(31, 15);
+            this.Equipa0RespostaD.TabIndex = 3;
+            this.Equipa0RespostaD.TabStop = true;
+            this.Equipa0RespostaD.Text = "D";
+            this.Equipa0RespostaD.UseVisualStyleBackColor = true;
+            // 
+            // Equipa0RespostaC
+            // 
+            this.Equipa0RespostaC.AutoSize = true;
+            this.Equipa0RespostaC.Location = new System.Drawing.Point(6, 82);
+            this.Equipa0RespostaC.Name = "Equipa0RespostaC";
+            this.Equipa0RespostaC.Size = new System.Drawing.Size(31, 15);
+            this.Equipa0RespostaC.TabIndex = 2;
+            this.Equipa0RespostaC.TabStop = true;
+            this.Equipa0RespostaC.Text = "C";
+            this.Equipa0RespostaC.UseVisualStyleBackColor = true;
+            // 
+            // Equipa0RespostaB
+            // 
+            this.Equipa0RespostaB.AutoSize = true;
+            this.Equipa0RespostaB.Location = new System.Drawing.Point(6, 61);
+            this.Equipa0RespostaB.Name = "Equipa0RespostaB";
+            this.Equipa0RespostaB.Size = new System.Drawing.Size(30, 15);
+            this.Equipa0RespostaB.TabIndex = 1;
+            this.Equipa0RespostaB.TabStop = true;
+            this.Equipa0RespostaB.Text = "B";
+            this.Equipa0RespostaB.UseVisualStyleBackColor = true;
+            // 
+            // Equipa0RespostaA
+            // 
+            this.Equipa0RespostaA.AutoSize = true;
+            this.Equipa0RespostaA.Location = new System.Drawing.Point(6, 40);
+            this.Equipa0RespostaA.Name = "Equipa0RespostaA";
+            this.Equipa0RespostaA.Size = new System.Drawing.Size(31, 15);
+            this.Equipa0RespostaA.TabIndex = 0;
+            this.Equipa0RespostaA.TabStop = true;
+            this.Equipa0RespostaA.Text = "A";
+            this.Equipa0RespostaA.UseVisualStyleBackColor = true;
+            // 
+            // Equipa0NenhumaResposta
+            // 
+            this.Equipa0NenhumaResposta.AutoSize = true;
+            this.Equipa0NenhumaResposta.Location = new System.Drawing.Point(6, 19);
+            this.Equipa0NenhumaResposta.Name = "Equipa0NenhumaResposta";
+            this.Equipa0NenhumaResposta.Size = new System.Drawing.Size(76, 15);
+            this.Equipa0NenhumaResposta.TabIndex = 0;
+            this.Equipa0NenhumaResposta.TabStop = true;
+            this.Equipa0NenhumaResposta.Text = "Nenhuma";
+            this.Equipa0NenhumaResposta.UseVisualStyleBackColor = true;
+            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +532,15 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryListDataGridView)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +562,25 @@
         private MetroFramework.Controls.MetroButton toGameWindow;
         private MetroFramework.Controls.MetroButton newQuest;
         private System.Windows.Forms.DataGridView CategoryListDataGridView;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TextBox teamName0;
+        private System.Windows.Forms.TextBox teamName1;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MetroFramework.Controls.MetroRadioButton Equipa0RespostaC;
+        private MetroFramework.Controls.MetroRadioButton Equipa0RespostaB;
+        private MetroFramework.Controls.MetroRadioButton Equipa0RespostaA;
+        private MetroFramework.Controls.MetroRadioButton Equipa0NenhumaResposta;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private MetroFramework.Controls.MetroRadioButton Equipa1NenhumaResposta;
+        private MetroFramework.Controls.MetroRadioButton Equipa1RespostaA;
+        private MetroFramework.Controls.MetroRadioButton Equipa1RespostaB;
+        private MetroFramework.Controls.MetroRadioButton Equipa1RespostaC;
+        private MetroFramework.Controls.MetroRadioButton Equipa1RespostaD;
+        private MetroFramework.Controls.MetroRadioButton Equipa0RespostaD;
     }
 }

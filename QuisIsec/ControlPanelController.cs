@@ -40,6 +40,8 @@ namespace QuisIsec
                     while (file.HasNextLine())
                     {
                         var line = file.GetNextLine();
+                        if (line.Count < 6)
+                            continue;
                         var cat = line[0];
                         if (_toIgnore.Any(toIgnore =>
                             string.Compare(cat, toIgnore, StringComparison.InvariantCultureIgnoreCase) == 0))
@@ -59,7 +61,7 @@ namespace QuisIsec
                             _categorys.Add(new Category(cat));
                         }
 
-                        if (line.All(item => item.Any()))
+                        if (line.Count >= 3 && line.All(item => item.Any()))
                             _categorys[i].AddQuestion(new Question(quest, line));
                     }
 
@@ -68,29 +70,39 @@ namespace QuisIsec
                 }
 
                 _categorys.RemoveAll(i => !i.Questions.Any());
+            }
 
-                var cont = 0;
-                foreach (var category in _categorys)
-                {
-                    cont += category.Questions.Count;
-                }
+            if (_categorys.Count <= 0)
+            {
+                MessageBox.Show(@"Não exitem preguntas", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(0);
             }
         }
 
         public void NewQuest()
         {
-            var rand1 = new Random().Next(_categorys.Count);
-            _nextQuest = _categorys[rand1].Questions[new Random().Next(_categorys[rand1].Questions.Count)];
-            _view.Quest = _nextQuest.Quest;
-            _view.RightAnswer = _nextQuest.RightAnswer;
-            _view.Answer1 = _nextQuest.OthersAnswer[0];
-            _view.Answer2 = _nextQuest.OthersAnswer[1];
-            _view.Answer3 = _nextQuest.OthersAnswer[2];
+            if (_categorys.Count <= 0)
+            {
+                MessageBox.Show(@"Não exitem mais preguntas", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (_categorys.Count > 0)
+            {
+                var rand1 = new Random().Next(_categorys.Count);
+                _nextQuest = _categorys[rand1].Questions[new Random().Next(_categorys[rand1].Questions.Count)];
+                _view.Quest = _nextQuest.Quest;
+                _view.RightAnswer = _nextQuest.RightAnswer;
+                _view.Answer1 = _nextQuest.OthersAnswer[0];
+                _view.Answer2 = _nextQuest.OthersAnswer[1];
+                _view.Answer3 = _nextQuest.OthersAnswer[2];
+            }
         }
 
         public void QuestToGameWindow()
         {
-            _gameController.SetQuest(_nextQuest);
+            if (_nextQuest != null)
+                _gameController.SetQuest(_nextQuest);
         }
 
 

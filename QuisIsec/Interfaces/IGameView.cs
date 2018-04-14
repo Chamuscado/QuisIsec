@@ -8,5 +8,9 @@
         string Answer1 { get; set; }
         string Answer2 { get; set; }
         string Answer3 { get; set; }
+        string Team0Name { get; set; }
+        string Team1Name { get; set; }
+        int Team0Points { get; set; }
+        int Team1Points { get; set; }
     }
 }

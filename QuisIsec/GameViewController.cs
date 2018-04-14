@@ -34,5 +34,29 @@
             _view.Close();
             _parent?.GameViewControllerWasEnd();
         }
+
+        public string Team0Name
+        {
+            get => _view.Team0Name;
+            set => _view.Team0Name = value;
+        }
+
+        public string Team1Name
+        {
+            get => _view.Team1Name;
+            set => _view.Team1Name = value;
+        }
+
+        public int Team0Points
+        {
+            get => _view.Team0Points;
+            set => _view.Team0Points = value;
+        }
+
+        public int Team1Points
+        {
+            get => _view.Team1Points;
+            set => _view.Team1Points = value;
+        }
     }
 }

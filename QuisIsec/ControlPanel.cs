@@ -77,6 +77,13 @@ namespace QuisIsec
                 dataTable.Rows.Add(category.Name, category.Questions.Count);
             }
 
+            var cont = 0;
+            foreach (var category in categorys)
+            {
+                cont += category.Questions.Count;
+            }
+
+            dataTable.Rows.Add("Total", cont);
             CategoryListDataGridView.DataSource = dataTable;
         }
 
@@ -85,14 +92,14 @@ namespace QuisIsec
             _controller.NewQuest();
         }
 
-        private void toGameWindow_Click(object sender, EventArgs e)
-        {
-            _controller.QuestToGameWindow();
-        }
-
         private void ControlPanel_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = _controller.CloseResquest();
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
