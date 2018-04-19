@@ -79,5 +79,10 @@ namespace QuisIsec
             Team0Color = teams[0].Color;
             Team1Color = teams[1].Color;
         }
+
+        public void BringToFront()
+        {
+            _view.BringToFront();
+        }
     }
 }

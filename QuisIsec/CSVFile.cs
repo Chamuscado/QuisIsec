@@ -6,7 +6,7 @@ using System.Text;
 
 namespace lib
 {
-    public class CsvFile
+    public class CsvFile : IDisposable
     {
         public string NameFile { get; }
         public string Dir { get; }
@@ -180,8 +180,7 @@ namespace lib
         public void Close()
         {
             _matriz = null;
-            _reader.Close();
-            GC.Collect();
+            _reader?.Close();
         }
 
         /// <summary>
@@ -201,5 +200,39 @@ namespace lib
         {
             return FileSize > MininumFileLengthValid;
         }
+
+        ~CsvFile()
+        {
+            Dispose();
+        }
+
+        #region Dispose
+
+        private bool _disposed = false;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected void Dispose(bool dispose)
+        {
+            if (_disposed)
+                return;
+
+            if (dispose)
+            {
+                Close();
+                _matriz?.Clear();
+                _encodingType = null;
+                _reader?.Dispose();
+                _line?.Clear();
+            }
+
+            _disposed = true;
+        }
+
+        #endregion
     }
 }

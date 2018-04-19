@@ -5,8 +5,8 @@ namespace QuisIsec
 {
     public class Category : IComparable<Category>
     {
-        public string Name { get; private set; }
-        public List<Question> Questions { get; private set; }
+        public string Name { get; }
+        public List<Question> Questions { get; }
 
         public Category(string name)
         {

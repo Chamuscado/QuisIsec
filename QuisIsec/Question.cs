@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuisIsec
 {
-    public class Question : IComparable<Question>
+    public class Question : IComparable<Question>, IEquatable<Question>
     {
         public List<string> Answers
         {
@@ -19,10 +17,10 @@ namespace QuisIsec
             }
         }
 
-        public string RightAnswer { get; private set; }
-        public string[] OthersAnswer { get; private set; }
-        public string Quest { get; private set; }
-        public string Category { get; set; }
+        public string RightAnswer { get; }
+        public string[] OthersAnswer { get; }
+        public string Quest { get; }
+        public string Category { get; }
 
         /// <summary>
         /// Construtor
@@ -55,6 +53,38 @@ namespace QuisIsec
         public override string ToString()
         {
             return Quest;
+        }
+
+        public bool Equals(Question other)
+        {
+            if (other == null) return false;
+            var firstNotSecond = OthersAnswer.Except(other.OthersAnswer).ToList();
+            var secondNotFirst = other.OthersAnswer.Except(OthersAnswer).ToList();
+
+            return string.Compare(RightAnswer, other.RightAnswer, StringComparison.InvariantCultureIgnoreCase) == 0
+                   && !firstNotSecond.Any() && !secondNotFirst.Any()
+                   && string.Compare(Quest, other.Quest, StringComparison.InvariantCultureIgnoreCase) == 0
+                   && string.Compare(Category, other.Category, StringComparison.InvariantCultureIgnoreCase) == 0;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals((Question) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = (RightAnswer != null ? RightAnswer.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (OthersAnswer != null ? OthersAnswer.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Quest != null ? Quest.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Category != null ? Category.GetHashCode() : 0);
+                return hashCode;
+            }
         }
     }
 }

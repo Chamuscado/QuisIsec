@@ -76,6 +76,8 @@
             this.pontosEquipa0TextBox = new MetroFramework.Controls.MetroTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.loadFilesButton = new MetroFramework.Controls.MetroButton();
+            this.startGameWinButton = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryListDataGridView)).BeginInit();
@@ -334,19 +336,22 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.groupBox2, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.startGameWinButton, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.loadFilesButton, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox2, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox1, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(381, 229);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
@@ -359,11 +364,12 @@
             this.tableLayoutPanel7.Controls.Add(this.Equipa1ColorPicker, 2, 0);
             this.tableLayoutPanel7.Controls.Add(this.pontosEquipa1TextBox, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(193, 197);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(193, 200);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(184, 29);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(185, 26);
             this.tableLayoutPanel7.TabIndex = 6;
             // 
             // Equipa1ColorPicker
@@ -373,7 +379,7 @@
             this.Equipa1ColorPicker.ColorInitial = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.Equipa1ColorPicker.Location = new System.Drawing.Point(125, 3);
             this.Equipa1ColorPicker.Name = "Equipa1ColorPicker";
-            this.Equipa1ColorPicker.Size = new System.Drawing.Size(56, 23);
+            this.Equipa1ColorPicker.Size = new System.Drawing.Size(56, 20);
             this.Equipa1ColorPicker.TabIndex = 0;
             this.Equipa1ColorPicker.ColorChanged += new MetroColorPicker.MetroColorPicker.ColorChangedEventHandler(this.Equipa1ColorPicker_ColorChanged);
             // 
@@ -382,7 +388,7 @@
             this.pontosEquipa1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pontosEquipa1TextBox.Location = new System.Drawing.Point(64, 3);
             this.pontosEquipa1TextBox.Name = "pontosEquipa1TextBox";
-            this.pontosEquipa1TextBox.Size = new System.Drawing.Size(55, 23);
+            this.pontosEquipa1TextBox.Size = new System.Drawing.Size(55, 20);
             this.pontosEquipa1TextBox.TabIndex = 10;
             this.pontosEquipa1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.pontosEquipa1TextBox.Click += new System.EventHandler(this.pontosEquipa1TextBox_Click);
@@ -393,7 +399,7 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 29);
+            this.label8.Size = new System.Drawing.Size(55, 26);
             this.label8.TabIndex = 11;
             this.label8.Text = "Pontos/Cor";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -406,9 +412,9 @@
             this.groupBox2.Controls.Add(this.Equipa1RespostaC);
             this.groupBox2.Controls.Add(this.Equipa1RespostaD);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(193, 37);
+            this.groupBox2.Location = new System.Drawing.Point(193, 61);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(185, 154);
+            this.groupBox2.Size = new System.Drawing.Size(185, 133);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
@@ -476,17 +482,17 @@
             this.tableLayoutPanel5.Controls.Add(this.teamName1, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.metroLabel2, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(193, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(193, 32);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(185, 28);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(185, 23);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // teamName1
             // 
             this.teamName1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.teamName1.Location = new System.Drawing.Point(95, 4);
+            this.teamName1.Location = new System.Drawing.Point(95, 3);
             this.teamName1.Name = "teamName1";
             this.teamName1.Size = new System.Drawing.Size(87, 20);
             this.teamName1.TabIndex = 3;
@@ -499,7 +505,7 @@
             this.metroLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroLabel2.Location = new System.Drawing.Point(3, 0);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(86, 28);
+            this.metroLabel2.Size = new System.Drawing.Size(86, 23);
             this.metroLabel2.TabIndex = 1;
             this.metroLabel2.Text = "Equipa 1";
             this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -512,17 +518,17 @@
             this.tableLayoutPanel4.Controls.Add(this.teamName0, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.metroLabel1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 32);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(184, 28);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(184, 23);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // teamName0
             // 
             this.teamName0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.teamName0.Location = new System.Drawing.Point(95, 4);
+            this.teamName0.Location = new System.Drawing.Point(95, 3);
             this.teamName0.Name = "teamName0";
             this.teamName0.Size = new System.Drawing.Size(86, 20);
             this.teamName0.TabIndex = 2;
@@ -535,7 +541,7 @@
             this.metroLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroLabel1.Location = new System.Drawing.Point(3, 0);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(86, 28);
+            this.metroLabel1.Size = new System.Drawing.Size(86, 23);
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "Equipa 0";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -548,9 +554,9 @@
             this.groupBox1.Controls.Add(this.Equipa0RespostaA);
             this.groupBox1.Controls.Add(this.Equipa0NenhumaResposta);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 37);
+            this.groupBox1.Location = new System.Drawing.Point(3, 61);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(184, 154);
+            this.groupBox1.Size = new System.Drawing.Size(184, 133);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -619,11 +625,12 @@
             this.tableLayoutPanel6.Controls.Add(this.Equipa0ColorPicker, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.pontosEquipa0TextBox, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 197);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 200);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(184, 29);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(184, 26);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
             // Equipa0ColorPicker
@@ -633,7 +640,7 @@
             this.Equipa0ColorPicker.ColorInitial = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.Equipa0ColorPicker.Location = new System.Drawing.Point(125, 3);
             this.Equipa0ColorPicker.Name = "Equipa0ColorPicker";
-            this.Equipa0ColorPicker.Size = new System.Drawing.Size(56, 23);
+            this.Equipa0ColorPicker.Size = new System.Drawing.Size(56, 20);
             this.Equipa0ColorPicker.TabIndex = 0;
             this.Equipa0ColorPicker.ColorChanged += new MetroColorPicker.MetroColorPicker.ColorChangedEventHandler(this.Equipa0ColorPicker_ColorChanged);
             // 
@@ -642,7 +649,7 @@
             this.pontosEquipa0TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pontosEquipa0TextBox.Location = new System.Drawing.Point(64, 3);
             this.pontosEquipa0TextBox.Name = "pontosEquipa0TextBox";
-            this.pontosEquipa0TextBox.Size = new System.Drawing.Size(55, 23);
+            this.pontosEquipa0TextBox.Size = new System.Drawing.Size(55, 20);
             this.pontosEquipa0TextBox.TabIndex = 10;
             this.pontosEquipa0TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.pontosEquipa0TextBox.TextChanged += new System.EventHandler(this.pontosEquipa0TextBox_TextChanged);
@@ -653,10 +660,30 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 29);
+            this.label7.Size = new System.Drawing.Size(55, 26);
             this.label7.TabIndex = 11;
             this.label7.Text = "Pontos/Cor";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // loadFilesButton
+            // 
+            this.loadFilesButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.loadFilesButton.Location = new System.Drawing.Point(31, 3);
+            this.loadFilesButton.Name = "loadFilesButton";
+            this.loadFilesButton.Size = new System.Drawing.Size(127, 23);
+            this.loadFilesButton.TabIndex = 11;
+            this.loadFilesButton.Text = "Carregar ficheiros";
+            this.loadFilesButton.Click += new System.EventHandler(this.loadFilesButton_Click);
+            // 
+            // startGameWinButton
+            // 
+            this.startGameWinButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.startGameWinButton.Location = new System.Drawing.Point(222, 3);
+            this.startGameWinButton.Name = "startGameWinButton";
+            this.startGameWinButton.Size = new System.Drawing.Size(127, 23);
+            this.startGameWinButton.TabIndex = 12;
+            this.startGameWinButton.Text = "Iniciar Janela de Jogo";
+            this.startGameWinButton.Click += new System.EventHandler(this.startGameWinButton_Click);
             // 
             // ControlPanel
             // 
@@ -735,5 +762,7 @@
         private System.Windows.Forms.Label label8;
         private MetroFramework.Controls.MetroTextBox pontosEquipa0TextBox;
         private System.Windows.Forms.Label label7;
+        private MetroFramework.Controls.MetroButton loadFilesButton;
+        private MetroFramework.Controls.MetroButton startGameWinButton;
     }
 }

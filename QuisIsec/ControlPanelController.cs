@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using lib;
@@ -15,6 +16,9 @@ namespace QuisIsec
         private Question _nextQuest;
         private Team[] _teams;
         private bool autoShow = true;
+        private const string UsedNameFile = @"UsedQuestions.txt";
+        private string _filesPath;
+        private StreamWriter _writerUseds;
 
         public ControlPanelController()
         {
@@ -26,22 +30,28 @@ namespace QuisIsec
 
             _view = new ControlPanel();
             _view.SetController(this);
-            LoadFiles();
+
             _view.Show();
-            _gameController = new GameViewController();
             _view.RefreshDataGridView(_categorys);
-            NewQuest();
         }
 
         private string[] _toIgnore = {"<categoria>"};
+        private string[] _toIgnoreFiles = {UsedNameFile};
         private List<Category> _categorys = new List<Category>();
+        private List<Question> _used = new List<Question>();
 
-        private void LoadFiles()
+        public void LoadFiles()
         {
             if (_view.RequestNameFiles(out var nameFiles))
             {
+                if (nameFiles.Length > 0)
+                    _filesPath = Path.GetDirectoryName(nameFiles[0]);
                 foreach (var nameFile in nameFiles)
                 {
+                    if (_toIgnoreFiles.Any(toIgnore =>
+                        string.Compare(nameFile, _filesPath + "\\" + toIgnore,
+                            StringComparison.InvariantCultureIgnoreCase) == 0))
+                        continue;
                     var file = new CsvFile(nameFile);
                     if (!file.FileExists() || !file.Open())
                         continue;
@@ -78,14 +88,60 @@ namespace QuisIsec
                     file.Close();
                 }
 
-                _categorys.RemoveAll(i => !i.Questions.Any());
+
+                var path = _filesPath + "\\" + UsedNameFile;
+                if (File.Exists(path))
+                    using (var file = new CsvFile(path, open: true))
+                    {
+                        while (file.HasNextLine())
+                        {
+                            var line = file.GetNextLine();
+                            if (line.Count < 6)
+                                continue;
+                            var cat = line[0];
+                            line.RemoveAt(0);
+                            var quest = line[0];
+                            line.RemoveAt(0);
+                            if (line.Count >= 3 && line.All(item => item.Any()))
+                                _used.Add(new Question(cat, quest, line));
+                        }
+                    }
+
+                foreach (var question in _used)
+                {
+                    var quest = question;
+                    foreach (var category in _categorys)
+                    {
+                        var catName = category.Name;
+                        if (quest.Category.CompareTo(catName) == 0)
+                        {
+                            for (var i = 0; i < category.Questions.Count; ++i)
+                            {
+                                var array = category.Questions;
+                                if (array[i].Equals(quest))
+                                {
+                                    category.Questions.RemoveAt(i);
+                                    break;
+                                }
+                            }
+
+                            break;
+                        }
+                    }
+                }
             }
+
+            _categorys.RemoveAll(i => !i.Questions.Any());
 
             if (_categorys.Count <= 0)
             {
                 MessageBox.Show(@"Não exitem preguntas", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
+
+            if (_writerUseds == null)
+                _writerUseds = new StreamWriter(_filesPath + "\\" + UsedNameFile, true) {AutoFlush = true};
+            _view.RefreshDataGridView(categorys: _categorys);
         }
 
         public void NewQuest()
@@ -111,14 +167,42 @@ namespace QuisIsec
 
         public void QuestToGameWindow()
         {
+            if (_gameController == null)
+            {
+                MessageBox.Show(@"Primeiro inicie a janela de jogo!!");
+                return;
+            }
+
             if (_nextQuest != null)
                 _gameController.SetQuest(_nextQuest);
+            _used.Add(_nextQuest);
+            _writerUseds.WriteLine(
+                $"{_nextQuest?.Category};{_nextQuest?.Quest};" +
+                $"{_nextQuest?.RightAnswer};{_nextQuest?.OthersAnswer[0]};" +
+                $"{_nextQuest?.OthersAnswer[1]};{_nextQuest?.OthersAnswer[2]}");
+            foreach (var category in _categorys)
+            {
+                if (string.Compare(category.Name, _nextQuest?.Category, StringComparison.CurrentCultureIgnoreCase) == 0)
+                {
+                    for (var i = 0; i < category.Questions.Count; ++i)
+                    {
+                        if (category.Questions[i].Equals(_nextQuest))
+                        {
+                            category.Questions.RemoveAt(i);
+                            _categorys.RemoveAll(cat => !cat.Questions.Any());
+                            _view.RefreshDataGridView(_categorys);
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
 
         public bool CloseResquest()
         {
             _gameController.End();
+
             Application.Exit();
             return false;
         }
@@ -161,6 +245,12 @@ namespace QuisIsec
                 if (autoShow)
                     _gameController.ChangedTeamInformation(_teams);
             }
+        }
+
+        public void StartGameWin()
+        {
+            if (_gameController == null) _gameController = new GameViewController();
+            else _gameController.BringToFront();
         }
     }
 }

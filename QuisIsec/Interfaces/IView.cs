@@ -6,5 +6,6 @@ namespace QuisIsec
     {
         void Show();
         void Close();
+        void BringToFront();
     }
 }

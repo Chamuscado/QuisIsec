@@ -23,17 +23,22 @@ namespace QuisIsec
         /// 
         /// </summary>
         /// <param name="nameFiles"></param>
+        /// <param name="path"></param>
         /// <returns>false -> não há ficheiros</returns>
         public bool RequestNameFiles(out string[] nameFiles)
         {
-            var dialog = new OpenFileDialog
+            bool @return;
+            using (var dialog = new OpenFileDialog
             {
-                InitialDirectory = @"D:\C#\QuisIsec\QuisIsec\bin\Debug", //@"C:\",
+                InitialDirectory = @"C:\Users\João Leitão\Google Drive\Ética e Deontologia\QuISEC", //@"C:\",
                 Filter = @"CSVFile(*.csv)|*.csv|All files (*.*)|*.*",
                 Multiselect = true
-            };
-            var @return = dialog.ShowDialog() == DialogResult.OK;
-            nameFiles = dialog.FileNames;
+            })
+            {
+                @return = dialog.ShowDialog() == DialogResult.OK;
+                nameFiles = dialog.FileNames;
+            }
+
             return @return;
         }
 
@@ -159,7 +164,7 @@ namespace QuisIsec
                 _controller.TeamPointsChanged(0, points);
             else
             {
-                MessageBox.Show("Apenas numeros!!!");
+                MessageBox.Show(@"Apenas numeros!!!");
             }
         }
 
@@ -169,8 +174,18 @@ namespace QuisIsec
                 _controller.TeamPointsChanged(1, points);
             else
             {
-                MessageBox.Show("Apenas numeros!!!");
+                MessageBox.Show(@"Apenas numeros!!!");
             }
+        }
+
+        private void loadFilesButton_Click(object sender, EventArgs e)
+        {
+            _controller.LoadFiles();
+        }
+
+        private void startGameWinButton_Click(object sender, EventArgs e)
+        {
+            _controller.StartGameWin();
         }
     }
 }
