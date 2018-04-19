@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//#define TablePanelBlue
+
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
-using lib;
 
 namespace QuisIsec
 {
@@ -72,6 +69,24 @@ namespace QuisIsec
             set => team1Points.Text = value.ToString();
         }
 
+        public Color Team0Color
+        {
+            get=> _team0Color;
+            set { tableLayoutPanel9.Invalidate();
+                _team0Color = value;
+            }
+        }
+
+        public Color Team1Color
+        {
+            get => _team1Color;
+            set
+            {
+                tableLayoutPanel10.Invalidate();
+                _team1Color = value;
+            }
+        }
+
         public Form Form => this;
 
         public QuisIsec()
@@ -83,6 +98,8 @@ namespace QuisIsec
         private readonly Color _backColorBackPanel = Color.FromArgb(0, 134, 191);
         private readonly Color _backColorAnswer = Color.FromArgb(5, 100, 187);
         private readonly Color _backColorPointsPanel = Color.FromArgb(0, 134, 191);
+        private Color _team0Color;
+        private Color _team1Color;
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -151,12 +168,20 @@ namespace QuisIsec
 
         private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)
         {
+#if TablePanelBlue
             PaintRoundEdges(tableLayoutPanel9, _backColorPointsPanel, e);
+#else
+            PaintRoundEdges(tableLayoutPanel9, Team0Color, e);
+#endif
         }
 
         private void tableLayoutPanel10_Paint(object sender, PaintEventArgs e)
         {
+#if TablePanelBlue
             PaintRoundEdges(tableLayoutPanel10, _backColorPointsPanel, e);
+#else
+            PaintRoundEdges(tableLayoutPanel10, Team1Color, e);
+#endif
         }
     }
 }

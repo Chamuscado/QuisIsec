@@ -1,4 +1,6 @@
-﻿namespace QuisIsec
+﻿using System.Drawing;
+
+namespace QuisIsec
 {
     public interface IGameView : IView
     {
@@ -12,5 +14,7 @@
         string Team1Name { get; set; }
         int Team0Points { get; set; }
         int Team1Points { get; set; }
+        Color Team0Color { get; set; }
+        Color Team1Color { get; set; }
     }
 }

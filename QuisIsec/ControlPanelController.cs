@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using lib;
@@ -150,6 +151,16 @@ namespace QuisIsec
         public void RefreshGameWindow()
         {
             _gameController.ChangedTeamInformation(_teams);
+        }
+
+        public void TeamColorChanged(int i, Color color)
+        {
+            if (i >= 0 && i < _teams.Length)
+            {
+                _teams[i].Color = color;
+                if (autoShow)
+                    _gameController.ChangedTeamInformation(_teams);
+            }
         }
     }
 }

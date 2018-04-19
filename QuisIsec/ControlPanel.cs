@@ -143,12 +143,14 @@ namespace QuisIsec
             _controller.TeamNameChanged(0, TeamName0);
         }
 
-        private void Equipa0ColorPicker_ColorChanged(int EventNumber)
+        private void Equipa0ColorPicker_ColorChanged(int eventNumber)
         {
+            _controller.TeamColorChanged(0, Equipa0ColorPicker.ColorInitial);
         }
 
-        private void Equipa1ColorPicker_ColorChanged(int EventNumber)
+        private void Equipa1ColorPicker_ColorChanged(int eventNumber)
         {
+            _controller.TeamColorChanged(1, Equipa1ColorPicker.ColorInitial);
         }
 
         private void pontosEquipa0TextBox_TextChanged(object sender, EventArgs e)

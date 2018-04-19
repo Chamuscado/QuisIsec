@@ -1,4 +1,6 @@
-﻿namespace QuisIsec
+﻿using System.Drawing;
+
+namespace QuisIsec
 {
     public class GameViewController
     {
@@ -58,12 +60,24 @@
             set => _view.Team1Points = value;
         }
 
+        public Color Team0Color {
+            get => _view.Team0Color;
+            set => _view.Team0Color = value;
+        }
+
+        public Color Team1Color {
+            get => _view.Team1Color;
+            set => _view.Team1Color = value;
+        }
+
         public void ChangedTeamInformation(Team[] teams)
         {
             Team0Name = teams[0].Name;
             Team1Name = teams[1].Name;
             Team0Points = teams[0].Points;
             Team1Points = teams[1].Points;
+            Team0Color = teams[0].Color;
+            Team1Color = teams[1].Color;
         }
     }
 }
