@@ -46,12 +46,12 @@
             this.preguntaLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.team1Points = new System.Windows.Forms.Label();
             this.team1Name = new System.Windows.Forms.Label();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.team0Points = new System.Windows.Forms.Label();
             this.team0Name = new System.Windows.Forms.Label();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -60,8 +60,8 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            this.metroPanel2.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -308,8 +308,8 @@
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.metroPanel2, 0, 1);
-            this.tableLayoutPanel8.Controls.Add(this.metroPanel1, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -318,88 +318,90 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(153, 407);
             this.tableLayoutPanel8.TabIndex = 4;
-            // 
-            // metroPanel2
-            // 
-            this.metroPanel2.Controls.Add(this.team1Points);
-            this.metroPanel2.Controls.Add(this.team1Name);
-            this.metroPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel2.HorizontalScrollbarBarColor = true;
-            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(3, 206);
-            this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(147, 198);
-            this.metroPanel2.TabIndex = 1;
-            this.metroPanel2.VerticalScrollbarBarColor = true;
-            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.VerticalScrollbarSize = 10;
-            this.metroPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel2_Paint);
+            this.tableLayoutPanel8.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel8_Paint);
             // 
             // team1Points
             // 
-            this.team1Points.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.team1Points.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.team1Points.Dock = System.Windows.Forms.DockStyle.Fill;
             this.team1Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.team1Points.Location = new System.Drawing.Point(3, 53);
+            this.team1Points.Location = new System.Drawing.Point(5, 54);
+            this.team1Points.Margin = new System.Windows.Forms.Padding(5);
             this.team1Points.Name = "team1Points";
-            this.team1Points.Size = new System.Drawing.Size(141, 145);
+            this.team1Points.Size = new System.Drawing.Size(137, 138);
             this.team1Points.TabIndex = 3;
             this.team1Points.Text = "0";
             this.team1Points.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // team1Name
             // 
-            this.team1Name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.team1Name.Location = new System.Drawing.Point(3, 7);
+            this.team1Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.team1Name.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.team1Name.Location = new System.Drawing.Point(5, 5);
+            this.team1Name.Margin = new System.Windows.Forms.Padding(5);
             this.team1Name.Name = "team1Name";
-            this.team1Name.Size = new System.Drawing.Size(141, 13);
+            this.team1Name.Size = new System.Drawing.Size(137, 39);
             this.team1Name.TabIndex = 2;
             this.team1Name.Text = "label1";
             this.team1Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // metroPanel1
-            // 
-            this.metroPanel1.Controls.Add(this.team0Points);
-            this.metroPanel1.Controls.Add(this.team0Name);
-            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(3, 3);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(147, 197);
-            this.metroPanel1.TabIndex = 0;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
-            this.metroPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel1_Paint);
-            // 
             // team0Points
             // 
-            this.team0Points.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.team0Points.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.team0Points.Dock = System.Windows.Forms.DockStyle.Fill;
             this.team0Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.team0Points.Location = new System.Drawing.Point(3, 53);
+            this.team0Points.Location = new System.Drawing.Point(5, 54);
+            this.team0Points.Margin = new System.Windows.Forms.Padding(5);
             this.team0Points.Name = "team0Points";
-            this.team0Points.Size = new System.Drawing.Size(141, 144);
+            this.team0Points.Size = new System.Drawing.Size(137, 138);
             this.team0Points.TabIndex = 3;
             this.team0Points.Text = "0";
             this.team0Points.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // team0Name
             // 
-            this.team0Name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.team0Name.Location = new System.Drawing.Point(3, 7);
+            this.team0Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.team0Name.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.team0Name.Location = new System.Drawing.Point(5, 5);
+            this.team0Name.Margin = new System.Windows.Forms.Padding(5);
             this.team0Name.Name = "team0Name";
-            this.team0Name.Size = new System.Drawing.Size(141, 13);
+            this.team0Name.Size = new System.Drawing.Size(137, 39);
             this.team0Name.TabIndex = 2;
             this.team0Name.Text = "label1";
             this.team0Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tableLayoutPanel9.ColumnCount = 1;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Controls.Add(this.team0Name, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.team0Points, 0, 1);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(147, 197);
+            this.tableLayoutPanel9.TabIndex = 2;
+            this.tableLayoutPanel9.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel9_Paint);
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tableLayoutPanel10.ColumnCount = 1;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.Controls.Add(this.team1Name, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.team1Points, 0, 1);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 206);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 2;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(147, 197);
+            this.tableLayoutPanel10.TabIndex = 3;
+            this.tableLayoutPanel10.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel10_Paint);
             // 
             // QuisIsec
             // 
@@ -424,8 +426,8 @@
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
-            this.metroPanel2.ResumeLayout(false);
-            this.metroPanel1.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -448,12 +450,12 @@
         private System.Windows.Forms.Label preguntaLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
         private System.Windows.Forms.Label team0Name;
-        private MetroFramework.Controls.MetroPanel metroPanel2;
         private System.Windows.Forms.Label team1Points;
         private System.Windows.Forms.Label team1Name;
         private System.Windows.Forms.Label team0Points;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
     }
 }
 

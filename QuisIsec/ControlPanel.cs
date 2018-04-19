@@ -67,6 +67,36 @@ namespace QuisIsec
             set => Answer3TextBox.Text = value;
         }
 
+        public string Category
+        {
+            get => CategoryTextBox.Text;
+            set => CategoryTextBox.Text = value;
+        }
+
+        public string TeamName1
+        {
+            get => teamName1.Text;
+            set => teamName1.Text = value;
+        }
+
+        public string TeamName0
+        {
+            get => teamName0.Text;
+            set => teamName0.Text = value;
+        }
+
+        public string Team0Points
+        {
+            get => pontosEquipa0TextBox.Text;
+            set => pontosEquipa0TextBox.Text = value;
+        }
+
+        public string Team1Points
+        {
+            get => pontosEquipa1TextBox.Text;
+            set => pontosEquipa1TextBox.Text = value;
+        }
+
         public void RefreshDataGridView(ICollection<Category> categorys)
         {
             var dataTable = new DataTable();
@@ -97,9 +127,48 @@ namespace QuisIsec
             e.Cancel = _controller.CloseResquest();
         }
 
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        private void toGameWindow_Click(object sender, EventArgs e)
         {
+            _controller.QuestToGameWindow();
+        }
 
+        private void teamName1_TextChanged(object sender, EventArgs e)
+        {
+            _controller.TeamNameChanged(1, TeamName1);
+        }
+
+
+        private void teamName0_TextChanged(object sender, EventArgs e)
+        {
+            _controller.TeamNameChanged(0, TeamName0);
+        }
+
+        private void Equipa0ColorPicker_ColorChanged(int EventNumber)
+        {
+        }
+
+        private void Equipa1ColorPicker_ColorChanged(int EventNumber)
+        {
+        }
+
+        private void pontosEquipa0TextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(Team0Points, out var points))
+                _controller.TeamPointsChanged(0, points);
+            else
+            {
+                MessageBox.Show("Apenas numeros!!!");
+            }
+        }
+
+        private void pontosEquipa1TextBox_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(Team1Points, out var points))
+                _controller.TeamPointsChanged(1, points);
+            else
+            {
+                MessageBox.Show("Apenas numeros!!!");
+            }
         }
     }
 }

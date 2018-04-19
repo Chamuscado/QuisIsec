@@ -11,6 +11,7 @@ namespace QuisIsec
         string Answer1 { get; set; }
         string Answer2 { get; set; }
         string Answer3 { get; set; }
+        string Category { get; set; }
         void RefreshDataGridView(ICollection<Category> categorys);
     }
 }

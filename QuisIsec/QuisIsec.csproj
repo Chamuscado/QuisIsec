@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroColorPicker">
+      <HintPath>..\..\libs\MetroColorPicker.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
     </Reference>
@@ -85,6 +88,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
+    <Compile Include="Team.cs" />
     <EmbeddedResource Include="ControlPanel.resx">
       <DependentUpon>ControlPanel.cs</DependentUpon>
     </EmbeddedResource>

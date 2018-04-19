@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuisIsec
 {
-    public class Question :IComparable<Question>
+    public class Question : IComparable<Question>
     {
         public List<string> Answers
         {
@@ -22,14 +22,17 @@ namespace QuisIsec
         public string RightAnswer { get; private set; }
         public string[] OthersAnswer { get; private set; }
         public string Quest { get; private set; }
+        public string Category { get; set; }
 
         /// <summary>
         /// Construtor
         /// </summary>
+        /// <param name="category">categoria da pregunta</param>
         /// <param name="quest">pregunta</param>
         /// <param name="answer">lista de respostas em que a primeira é a resposta certa</param>
-        public Question(string quest, List<string> answer)
+        public Question(string category, string quest, List<string> answer)
         {
+            Category = category;
             Quest = quest;
             if (answer.Count > 0)
             {

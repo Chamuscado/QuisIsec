@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Dialogs;
-
 
 namespace QuisIsec
 {
@@ -24,13 +22,13 @@ namespace QuisIsec
 
         public static void Shuffle<T>(this IList<T> list)
         {
-            int n = list.Count;
-            Random rnd = new Random();
+            var n = list.Count;
+            var rnd = new Random();
             while (n > 1)
             {
-                int k = (rnd.Next(0, n) % n);
+                var k = (rnd.Next(0, n) % n);
                 n--;
-                T value = list[k];
+                var value = list[k];
                 list[k] = list[n];
                 list[n] = value;
             }
@@ -38,7 +36,7 @@ namespace QuisIsec
 
         public static IList<T> Clone<T>(this IList<T> listToClone) where T : ICloneable
         {
-            return listToClone.Select(item => (T)item.Clone()).ToList();
+            return listToClone.Select(item => (T) item.Clone()).ToList();
         }
     }
 }

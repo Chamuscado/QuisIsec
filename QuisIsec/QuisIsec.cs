@@ -144,14 +144,19 @@ namespace QuisIsec
             return path;
         }
 
-        private void metroPanel1_Paint(object sender, PaintEventArgs e)
+        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(metroPanel1, _backColorPointsPanel, e);
+            PaintRoundEdges(tableLayoutPanel8, _backColorBackPanel, e);
         }
 
-        private void metroPanel2_Paint(object sender, PaintEventArgs e)
+        private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(metroPanel2, _backColorPointsPanel, e);
+            PaintRoundEdges(tableLayoutPanel9, _backColorPointsPanel, e);
+        }
+
+        private void tableLayoutPanel10_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(tableLayoutPanel10, _backColorPointsPanel, e);
         }
     }
 }

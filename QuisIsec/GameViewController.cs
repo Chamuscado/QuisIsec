@@ -5,7 +5,6 @@
         private IGameView _view;
         private ControlPanelController _parent;
 
-
         public GameViewController()
         {
             _view = new QuisIsec();
@@ -31,7 +30,7 @@
 
         public void End()
         {
-            _view.Close();
+            _view?.Close();
             _parent?.GameViewControllerWasEnd();
         }
 
@@ -57,6 +56,14 @@
         {
             get => _view.Team1Points;
             set => _view.Team1Points = value;
+        }
+
+        public void ChangedTeamInformation(Team[] teams)
+        {
+            Team0Name = teams[0].Name;
+            Team1Name = teams[1].Name;
+            Team0Points = teams[0].Points;
+            Team1Points = teams[1].Points;
         }
     }
 }
