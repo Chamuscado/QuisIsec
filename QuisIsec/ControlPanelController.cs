@@ -15,7 +15,7 @@ namespace QuisIsec
         private GameViewController _gameController;
         private Question _nextQuest;
         private Team[] _teams;
-        private bool autoShow = true;
+        private bool _autoShow = true;
         private const string UsedNameFile = @"UsedQuestions.txt";
         private string _filesPath;
         private StreamWriter _writerUseds;
@@ -113,20 +113,16 @@ namespace QuisIsec
                     foreach (var category in _categorys)
                     {
                         var catName = category.Name;
-                        if (quest.Category.CompareTo(catName) == 0)
+                        if (string.Compare(quest.Category, catName, StringComparison.Ordinal) != 0) continue;
+                        for (var i = 0; i < category.Questions.Count; ++i)
                         {
-                            for (var i = 0; i < category.Questions.Count; ++i)
-                            {
-                                var array = category.Questions;
-                                if (array[i].Equals(quest))
-                                {
-                                    category.Questions.RemoveAt(i);
-                                    break;
-                                }
-                            }
-
+                            var array = category.Questions;
+                            if (!array[i].Equals(quest)) continue;
+                            category.Questions.RemoveAt(i);
                             break;
                         }
+
+                        break;
                     }
                 }
             }
@@ -136,7 +132,7 @@ namespace QuisIsec
             if (_categorys.Count <= 0)
             {
                 MessageBox.Show(@"Não exitem preguntas", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Environment.Exit(0);
+                return;
             }
 
             if (_writerUseds == null)
@@ -201,7 +197,7 @@ namespace QuisIsec
 
         public bool CloseResquest()
         {
-            _gameController.End();
+            _gameController?.End();
 
             Application.Exit();
             return false;
@@ -217,8 +213,8 @@ namespace QuisIsec
             if (i >= 0 && i < _teams.Length)
             {
                 _teams[i].Name = teamName1;
-                if (autoShow)
-                    _gameController.ChangedTeamInformation(_teams);
+                if (_autoShow)
+                    _gameController?.ChangedTeamInformation(_teams);
             }
         }
 
@@ -227,14 +223,14 @@ namespace QuisIsec
             if (i >= 0 && i < _teams.Length)
             {
                 _teams[i].Points = points;
-                if (autoShow)
-                    _gameController.ChangedTeamInformation(_teams);
+                if (_autoShow)
+                    _gameController?.ChangedTeamInformation(_teams);
             }
         }
 
         public void RefreshGameWindow()
         {
-            _gameController.ChangedTeamInformation(_teams);
+            _gameController?.ChangedTeamInformation(_teams);
         }
 
         public void TeamColorChanged(int i, Color color)
@@ -242,14 +238,18 @@ namespace QuisIsec
             if (i >= 0 && i < _teams.Length)
             {
                 _teams[i].Color = color;
-                if (autoShow)
-                    _gameController.ChangedTeamInformation(_teams);
+                if (_autoShow)
+                    _gameController?.ChangedTeamInformation(_teams);
             }
         }
 
         public void StartGameWin()
         {
-            if (_gameController == null) _gameController = new GameViewController();
+            if (_gameController == null)
+            {
+                _gameController = new GameViewController();
+                _gameController.ChangedTeamInformation(_teams);
+            }
             else _gameController.BringToFront();
         }
     }

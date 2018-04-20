@@ -50,8 +50,8 @@
             this.CategoryListDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.Equipa1ColorPicker = new MetroColorPicker.MetroColorPicker();
-            this.pontosEquipa1TextBox = new MetroFramework.Controls.MetroTextBox();
+            this.Team1ColorPicker = new MetroColorPicker.MetroColorPicker();
+            this.teamPoints1TextBox = new MetroFramework.Controls.MetroTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Equipa1NenhumaResposta = new MetroFramework.Controls.MetroRadioButton();
@@ -72,8 +72,8 @@
             this.Equipa0RespostaA = new MetroFramework.Controls.MetroRadioButton();
             this.Equipa0NenhumaResposta = new MetroFramework.Controls.MetroRadioButton();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.Equipa0ColorPicker = new MetroColorPicker.MetroColorPicker();
-            this.pontosEquipa0TextBox = new MetroFramework.Controls.MetroTextBox();
+            this.Team0ColorPicker = new MetroColorPicker.MetroColorPicker();
+            this.teamPoints0TextBox = new MetroFramework.Controls.MetroTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.loadFilesButton = new MetroFramework.Controls.MetroButton();
@@ -361,8 +361,8 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.Controls.Add(this.Equipa1ColorPicker, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.pontosEquipa1TextBox, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.Team1ColorPicker, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.teamPoints1TextBox, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(193, 200);
@@ -372,26 +372,26 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(185, 26);
             this.tableLayoutPanel7.TabIndex = 6;
             // 
-            // Equipa1ColorPicker
+            // Team1ColorPicker
             // 
-            this.Equipa1ColorPicker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Equipa1ColorPicker.BackColor = System.Drawing.Color.Transparent;
-            this.Equipa1ColorPicker.ColorInitial = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Equipa1ColorPicker.Location = new System.Drawing.Point(125, 3);
-            this.Equipa1ColorPicker.Name = "Equipa1ColorPicker";
-            this.Equipa1ColorPicker.Size = new System.Drawing.Size(56, 20);
-            this.Equipa1ColorPicker.TabIndex = 0;
-            this.Equipa1ColorPicker.ColorChanged += new MetroColorPicker.MetroColorPicker.ColorChangedEventHandler(this.Equipa1ColorPicker_ColorChanged);
+            this.Team1ColorPicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Team1ColorPicker.BackColor = System.Drawing.Color.Transparent;
+            this.Team1ColorPicker.ColorInitial = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Team1ColorPicker.Location = new System.Drawing.Point(125, 3);
+            this.Team1ColorPicker.Name = "Team1ColorPicker";
+            this.Team1ColorPicker.Size = new System.Drawing.Size(56, 20);
+            this.Team1ColorPicker.TabIndex = 0;
+            this.Team1ColorPicker.ColorChanged += new MetroColorPicker.MetroColorPicker.ColorChangedEventHandler(this.Team1ColorPicker_ColorChanged);
             // 
-            // pontosEquipa1TextBox
+            // teamPoints1TextBox
             // 
-            this.pontosEquipa1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pontosEquipa1TextBox.Location = new System.Drawing.Point(64, 3);
-            this.pontosEquipa1TextBox.Name = "pontosEquipa1TextBox";
-            this.pontosEquipa1TextBox.Size = new System.Drawing.Size(55, 20);
-            this.pontosEquipa1TextBox.TabIndex = 10;
-            this.pontosEquipa1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pontosEquipa1TextBox.Click += new System.EventHandler(this.pontosEquipa1TextBox_Click);
+            this.teamPoints1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.teamPoints1TextBox.Location = new System.Drawing.Point(64, 3);
+            this.teamPoints1TextBox.Name = "teamPoints1TextBox";
+            this.teamPoints1TextBox.Size = new System.Drawing.Size(55, 20);
+            this.teamPoints1TextBox.TabIndex = 10;
+            this.teamPoints1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.teamPoints1TextBox.Click += new System.EventHandler(this.teamPoints1TextBox_Click);
             // 
             // label8
             // 
@@ -622,8 +622,8 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.Controls.Add(this.Equipa0ColorPicker, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.pontosEquipa0TextBox, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.Team0ColorPicker, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.teamPoints0TextBox, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 200);
@@ -633,26 +633,26 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(184, 26);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
-            // Equipa0ColorPicker
+            // Team0ColorPicker
             // 
-            this.Equipa0ColorPicker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Equipa0ColorPicker.BackColor = System.Drawing.Color.Transparent;
-            this.Equipa0ColorPicker.ColorInitial = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Equipa0ColorPicker.Location = new System.Drawing.Point(125, 3);
-            this.Equipa0ColorPicker.Name = "Equipa0ColorPicker";
-            this.Equipa0ColorPicker.Size = new System.Drawing.Size(56, 20);
-            this.Equipa0ColorPicker.TabIndex = 0;
-            this.Equipa0ColorPicker.ColorChanged += new MetroColorPicker.MetroColorPicker.ColorChangedEventHandler(this.Equipa0ColorPicker_ColorChanged);
+            this.Team0ColorPicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Team0ColorPicker.BackColor = System.Drawing.Color.Transparent;
+            this.Team0ColorPicker.ColorInitial = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Team0ColorPicker.Location = new System.Drawing.Point(125, 3);
+            this.Team0ColorPicker.Name = "Team0ColorPicker";
+            this.Team0ColorPicker.Size = new System.Drawing.Size(56, 20);
+            this.Team0ColorPicker.TabIndex = 0;
+            this.Team0ColorPicker.ColorChanged += new MetroColorPicker.MetroColorPicker.ColorChangedEventHandler(this.Team0ColorPicker_ColorChanged);
             // 
-            // pontosEquipa0TextBox
+            // teamPoints0TextBox
             // 
-            this.pontosEquipa0TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pontosEquipa0TextBox.Location = new System.Drawing.Point(64, 3);
-            this.pontosEquipa0TextBox.Name = "pontosEquipa0TextBox";
-            this.pontosEquipa0TextBox.Size = new System.Drawing.Size(55, 20);
-            this.pontosEquipa0TextBox.TabIndex = 10;
-            this.pontosEquipa0TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.pontosEquipa0TextBox.TextChanged += new System.EventHandler(this.pontosEquipa0TextBox_TextChanged);
+            this.teamPoints0TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.teamPoints0TextBox.Location = new System.Drawing.Point(64, 3);
+            this.teamPoints0TextBox.Name = "teamPoints0TextBox";
+            this.teamPoints0TextBox.Size = new System.Drawing.Size(55, 20);
+            this.teamPoints0TextBox.TabIndex = 10;
+            this.teamPoints0TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.teamPoints0TextBox.TextChanged += new System.EventHandler(this.teamPoints0TextBox_TextChanged);
             // 
             // label7
             // 
@@ -755,12 +755,12 @@
         private MetroFramework.Controls.MetroTextBox CategoryTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private MetroColorPicker.MetroColorPicker Equipa0ColorPicker;
+        private MetroColorPicker.MetroColorPicker Team0ColorPicker;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private MetroColorPicker.MetroColorPicker Equipa1ColorPicker;
-        private MetroFramework.Controls.MetroTextBox pontosEquipa1TextBox;
+        private MetroColorPicker.MetroColorPicker Team1ColorPicker;
+        private MetroFramework.Controls.MetroTextBox teamPoints1TextBox;
         private System.Windows.Forms.Label label8;
-        private MetroFramework.Controls.MetroTextBox pontosEquipa0TextBox;
+        private MetroFramework.Controls.MetroTextBox teamPoints0TextBox;
         private System.Windows.Forms.Label label7;
         private MetroFramework.Controls.MetroButton loadFilesButton;
         private MetroFramework.Controls.MetroButton startGameWinButton;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace QuisIsec
@@ -17,13 +18,14 @@ namespace QuisIsec
         public void SetController(ControlPanelController controller)
         {
             _controller = controller;
+            _controller.TeamColorChanged(0, Team0ColorPicker.ColorInitial);
+            _controller.TeamColorChanged(1, Team1ColorPicker.ColorInitial);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="nameFiles"></param>
-        /// <param name="path"></param>
         /// <returns>false -> não há ficheiros</returns>
         public bool RequestNameFiles(out string[] nameFiles)
         {
@@ -92,14 +94,14 @@ namespace QuisIsec
 
         public string Team0Points
         {
-            get => pontosEquipa0TextBox.Text;
-            set => pontosEquipa0TextBox.Text = value;
+            get => teamPoints0TextBox.Text;
+            set => teamPoints0TextBox.Text = value;
         }
 
         public string Team1Points
         {
-            get => pontosEquipa1TextBox.Text;
-            set => pontosEquipa1TextBox.Text = value;
+            get => teamPoints1TextBox.Text;
+            set => teamPoints1TextBox.Text = value;
         }
 
         public void RefreshDataGridView(ICollection<Category> categorys)
@@ -112,11 +114,7 @@ namespace QuisIsec
                 dataTable.Rows.Add(category.Name, category.Questions.Count);
             }
 
-            var cont = 0;
-            foreach (var category in categorys)
-            {
-                cont += category.Questions.Count;
-            }
+            var cont = categorys.Sum(category => category.Questions.Count);
 
             dataTable.Rows.Add("Total", cont);
             CategoryListDataGridView.DataSource = dataTable;
@@ -148,17 +146,17 @@ namespace QuisIsec
             _controller.TeamNameChanged(0, TeamName0);
         }
 
-        private void Equipa0ColorPicker_ColorChanged(int eventNumber)
+        private void Team0ColorPicker_ColorChanged(int eventNumber)
         {
-            _controller.TeamColorChanged(0, Equipa0ColorPicker.ColorInitial);
+            _controller.TeamColorChanged(0, Team0ColorPicker.ColorInitial);
         }
 
-        private void Equipa1ColorPicker_ColorChanged(int eventNumber)
+        private void Team1ColorPicker_ColorChanged(int eventNumber)
         {
-            _controller.TeamColorChanged(1, Equipa1ColorPicker.ColorInitial);
+            _controller.TeamColorChanged(1, Team1ColorPicker.ColorInitial);
         }
 
-        private void pontosEquipa0TextBox_TextChanged(object sender, EventArgs e)
+        private void teamPoints0TextBox_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(Team0Points, out var points))
                 _controller.TeamPointsChanged(0, points);
@@ -168,7 +166,7 @@ namespace QuisIsec
             }
         }
 
-        private void pontosEquipa1TextBox_Click(object sender, EventArgs e)
+        private void teamPoints1TextBox_Click(object sender, EventArgs e)
         {
             if (int.TryParse(Team1Points, out var points))
                 _controller.TeamPointsChanged(1, points);
