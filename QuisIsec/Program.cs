@@ -17,7 +17,6 @@ namespace QuisIsec
             Application.SetCompatibleTextRenderingDefault(false);
             new ControlPanelController();
             Application.Run();
-            //AppManager.Start<ControlPanelController>();
         }
 
         public static void Shuffle<T>(this IList<T> list)
@@ -38,5 +37,7 @@ namespace QuisIsec
         {
             return listToClone.Select(item => (T) item.Clone()).ToList();
         }
+
+   
     }
 }

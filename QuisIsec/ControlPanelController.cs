@@ -11,14 +11,23 @@ namespace QuisIsec
     public class ControlPanelController
     {
         private const int NumberOfTemas = 2;
+        private const string UsedNameFile = @"UsedQuestions.txt";
+        private readonly string[] _toIgnore = {"<categoria>"};
+        private readonly string[] _toIgnoreFiles = {UsedNameFile};
+        private List<Category> _categorys = new List<Category>();
+        private List<Question> _used = new List<Question>();
         private IControlPanelView _view;
         private GameViewController _gameController;
         private Question _nextQuest;
         private Team[] _teams;
         private bool _autoShow = true;
-        private const string UsedNameFile = @"UsedQuestions.txt";
         private string _filesPath;
         private StreamWriter _writerUseds;
+        private Timer _timer;
+        private const int StepTimer = 10; //milliseconds
+        private int _milliseconds;
+        private int _maxTime = 60000;
+
 
         public ControlPanelController()
         {
@@ -28,17 +37,15 @@ namespace QuisIsec
                 _teams[i] = new Team();
             }
 
+            _timer = new Timer();
+            _timer.Interval = StepTimer;
+            _timer.Tick += TimerPulse;
             _view = new ControlPanel();
             _view.SetController(this);
 
             _view.Show();
             _view.RefreshDataGridView(_categorys);
         }
-
-        private string[] _toIgnore = {"<categoria>"};
-        private string[] _toIgnoreFiles = {UsedNameFile};
-        private List<Category> _categorys = new List<Category>();
-        private List<Question> _used = new List<Question>();
 
         public void LoadFiles()
         {
@@ -165,12 +172,17 @@ namespace QuisIsec
         {
             if (_gameController == null)
             {
-                MessageBox.Show(@"Primeiro inicie a janela de jogo!!");
+                MessageBox.Show(@"Primeiro inicie a janela de jogo!!!");
                 return;
             }
 
-            if (_nextQuest != null)
-                _gameController.SetQuest(_nextQuest);
+            if (_nextQuest == null)
+            {
+                MessageBox.Show(@"Nenhuma pregunta!!!");
+                return;
+            }
+
+            _gameController.SetQuest(_nextQuest);
             _used.Add(_nextQuest);
             _writerUseds.WriteLine(
                 $"{_nextQuest?.Category};{_nextQuest?.Quest};" +
@@ -248,9 +260,57 @@ namespace QuisIsec
             if (_gameController == null)
             {
                 _gameController = new GameViewController();
+                _gameController.SetParent(this);
                 _gameController.ChangedTeamInformation(_teams);
             }
             else _gameController.BringToFront();
         }
+
+        public void SetAnswer(int i, Answer answer)
+        {
+            if (i >= 0 && i < _teams.Length)
+            {
+                _teams[i].Answer = answer;
+                _gameController?.ChangedTeamInformation(_teams);
+            }
+        }
+
+        public void RestTimer()
+        {
+            _milliseconds = 0;
+            _timer.Stop();
+        }
+
+        public void StartTimer()
+        {
+            _timer.Start();
+        }
+
+        private void TimerPulse(object sender, EventArgs eventArgs)
+        {
+            _milliseconds += StepTimer;
+            var remainTime = _maxTime - _milliseconds;
+            if (remainTime >= 0)
+                _gameController.SetTime(remainTime);
+            else
+            {
+                _timer.Stop();
+                _gameController.SetTime(0);
+            }
+        }
+
+        public void StopTimer()
+        {
+            _timer.Stop();
+        }
+    }
+
+    public enum Answer
+    {
+        None = -1,
+        A = 0,
+        B = 1,
+        C = 2,
+        D = 3
     }
 }

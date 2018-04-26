@@ -16,5 +16,9 @@ namespace QuisIsec
         int Team1Points { get; set; }
         Color Team0Color { get; set; }
         Color Team1Color { get; set; }
+        string Category { get; set; }
+        Answer Team0Answer { get; set; }
+        Answer Team1Answer { get; set; }
+        int Time { set; }
     }
 }

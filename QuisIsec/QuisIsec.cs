@@ -1,12 +1,14 @@
 ﻿//#define TablePanelBlue
 
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace QuisIsec
 {
-    public partial class QuisIsec : MetroFramework.Forms.MetroForm, IGameView
+    public partial class QuIsec : MetroFramework.Forms.MetroForm, IGameView
     {
         private GameViewController _controller;
 
@@ -48,13 +50,21 @@ namespace QuisIsec
         public string Team0Name
         {
             get => team0Name.Text;
-            set => team0Name.Text = value;
+            set => labelAnswer0Team0.Text =
+                labelAnswer1Team0.Text =
+                    labelAnswer2Team0.Text =
+                        labelAnswer3Team0.Text =
+                            team0Name.Text = value;
         }
 
         public string Team1Name
         {
             get => team1Name.Text;
-            set => team1Name.Text = value;
+            set => labelAnswer0Team1.Text =
+                labelAnswer1Team1.Text =
+                    labelAnswer2Team1.Text =
+                        labelAnswer3Team1.Text =
+                            team1Name.Text = value;
         }
 
         public int Team0Points
@@ -71,8 +81,10 @@ namespace QuisIsec
 
         public Color Team0Color
         {
-            get=> _team0Color;
-            set { tableLayoutPanel9.Invalidate();
+            get => _team0Color;
+            set
+            {
+                tableLayoutPanel9.Invalidate();
                 _team0Color = value;
             }
         }
@@ -87,28 +99,182 @@ namespace QuisIsec
             }
         }
 
+        public string Category
+        {
+            get => categoryLabel.Text;
+            set => categoryLabel.Text = value;
+        }
+
+        public Answer Team0Answer
+        {
+            get
+            {
+                var answer = Answer.None;
+                if (labelAnswer0Team0.Visible)
+                    answer = Answer.A;
+                else if (labelAnswer1Team0.Visible)
+                    answer = Answer.B;
+                else if (labelAnswer2Team0.Visible)
+                    answer = Answer.C;
+                else if (labelAnswer3Team0.Visible)
+                    answer = Answer.D;
+                return answer;
+            }
+            set
+            {
+                switch (value)
+                {
+                    case Answer.None:
+                        labelAnswer0Team0.Visible =
+                            labelAnswer1Team0.Visible =
+                                labelAnswer2Team0.Visible =
+                                    labelAnswer3Team0.Visible = false;
+                        break;
+                    case Answer.A:
+                        labelAnswer0Team0.Visible = true;
+                        labelAnswer1Team0.Visible =
+                            labelAnswer2Team0.Visible =
+                                labelAnswer3Team0.Visible = false;
+                        break;
+                    case Answer.B:
+                        labelAnswer0Team0.Visible =
+                            labelAnswer2Team0.Visible =
+                                labelAnswer3Team0.Visible = false;
+                        labelAnswer1Team0.Visible = true;
+
+                        break;
+                    case Answer.C:
+                        labelAnswer0Team0.Visible =
+                            labelAnswer1Team0.Visible =
+                                labelAnswer3Team0.Visible = false;
+                        labelAnswer2Team0.Visible = true;
+                        break;
+                    case Answer.D:
+                        labelAnswer0Team0.Visible =
+                            labelAnswer1Team0.Visible =
+                                labelAnswer2Team0.Visible = false;
+                        labelAnswer3Team0.Visible = true;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(value), value, null);
+                }
+            }
+        }
+
+        public Answer Team1Answer
+        {
+            get
+            {
+                var answer = Answer.None;
+                if (labelAnswer0Team1.Visible)
+                    answer = Answer.A;
+                else if (labelAnswer1Team1.Visible)
+                    answer = Answer.B;
+                else if (labelAnswer2Team1.Visible)
+                    answer = Answer.C;
+                else if (labelAnswer3Team1.Visible)
+                    answer = Answer.D;
+                return answer;
+            }
+            set
+            {
+                switch (value)
+                {
+                    case Answer.None:
+                        labelAnswer0Team1.Visible =
+                            labelAnswer1Team1.Visible =
+                                labelAnswer2Team1.Visible =
+                                    labelAnswer3Team1.Visible = false;
+                        break;
+                    case Answer.A:
+                        labelAnswer0Team1.Visible = true;
+                        labelAnswer1Team1.Visible =
+                            labelAnswer2Team1.Visible =
+                                labelAnswer3Team1.Visible = false;
+                        break;
+                    case Answer.B:
+                        labelAnswer0Team1.Visible =
+                            labelAnswer2Team1.Visible =
+                                labelAnswer3Team1.Visible = false;
+                        labelAnswer1Team1.Visible = true;
+
+                        break;
+                    case Answer.C:
+                        labelAnswer0Team1.Visible =
+                            labelAnswer1Team1.Visible =
+                                labelAnswer3Team1.Visible = false;
+                        labelAnswer2Team1.Visible = true;
+                        break;
+                    case Answer.D:
+                        labelAnswer0Team1.Visible =
+                            labelAnswer1Team1.Visible =
+                                labelAnswer2Team1.Visible = false;
+                        labelAnswer3Team1.Visible = true;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(value), value, null);
+                }
+            }
+        }
+
+        public int Time
+        {
+            set
+            {
+                if (value < 1000) //less than second
+                    timerLabel.Text = $"00:{(value / 10):00}";
+                else if (value < 60000) // less than minute
+                    if (value % 1000 == 0)
+                        timerLabel.Text = $"{(value / 1000):00}";
+                    else
+                        timerLabel.Text = $"{(value / 1000):00}:{(value % 1000 / 10):00}";
+                else // mode than minute
+                    timerLabel.Text = $"{value / 60000}:{(value % 60000 / 1000):00}";
+            }
+        }
+
         public Form Form => this;
 
-        public QuisIsec()
+        public QuIsec()
         {
             InitializeComponent();
+            Team0Answer = Answer.A;
+            Team1Answer = Answer.B;
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            MaximizeToSecondaryMonitor();
+        }
+
+        public void MaximizeToSecondaryMonitor()
+        {
+            var secondaryScreen = Screen.AllScreens.FirstOrDefault(s => !s.Primary);
+
+            if (secondaryScreen != null)
+            {
+                var workingArea = secondaryScreen.WorkingArea;
+                Left = workingArea.Left;
+                Top = workingArea.Top;
+                Width = workingArea.Width;
+                Height = workingArea.Height;
+            }
         }
 
         private readonly Color _backColorQuest = Color.FromArgb(5, 100, 187);
         private readonly Color _backColorBackPanel = Color.FromArgb(0, 134, 191);
         private readonly Color _backColorAnswer = Color.FromArgb(5, 100, 187);
         private readonly Color _backColorPointsPanel = Color.FromArgb(0, 134, 191);
+        private readonly Color _backColorCategoryLabel = Color.Blue;
+        private readonly Color _backColorTimer = Color.Cornsilk;
         private Color _team0Color;
         private Color _team1Color;
+
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             PaintRoundEdges(tableLayoutPanel1, _backColorBackPanel, e);
-        }
-
-        private void preguntaLabel_Paint(object sender, PaintEventArgs e)
-        {
-            PaintRoundEdges(preguntaLabel, _backColorQuest, e);
         }
 
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
@@ -131,9 +297,9 @@ namespace QuisIsec
             PaintRoundEdges(tableLayoutPanel6, _backColorAnswer, e);
         }
 
-        private void PaintRoundEdges(Control graphElement, Color color, PaintEventArgs e)
+        private void PaintRoundEdges(Control graphElement, Color color, PaintEventArgs e, int cornerRadius = 40)
         {
-            using (var graphicsPath = _getRoundRectangle(graphElement.ClientRectangle))
+            using (var graphicsPath = _getRoundRectangle(graphElement.ClientRectangle, cornerRadius))
             {
                 e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                 using (var brush = new SolidBrush(color))
@@ -145,9 +311,8 @@ namespace QuisIsec
             }
         }
 
-        private GraphicsPath _getRoundRectangle(Rectangle rectangle)
+        private GraphicsPath _getRoundRectangle(Rectangle rectangle, int cornerRadius)
         {
-            const int cornerRadius = 40; // change this value according to your needs
             const int diminisher = 1;
             var path = new GraphicsPath();
             path.AddArc(rectangle.X, rectangle.Y, cornerRadius, cornerRadius, 180, 90);
@@ -182,6 +347,66 @@ namespace QuisIsec
 #else
             PaintRoundEdges(tableLayoutPanel10, Team1Color, e);
 #endif
+        }
+
+        private void categoryLabel_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(categoryLabel, _backColorCategoryLabel, e);
+        }
+
+        private void questpanel_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(questPanel, _backColorQuest, e);
+        }
+
+        private void QuisIsec_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = _controller.End(true);
+        }
+
+        private void timerLabel_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(timerLabel, _backColorTimer, e);
+        }
+
+        private void labelAnswer0Team0_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(labelAnswer0Team0, _team0Color, e);
+        }
+
+        private void labelAnswer1Team0_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(labelAnswer1Team0, _team0Color, e);
+        }
+
+        private void labelAnswer2Team0_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(labelAnswer2Team0, _team0Color, e);
+        }
+
+        private void labelAnswer3Team0_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(labelAnswer3Team0, _team0Color, e);
+        }
+
+        private void labelAnswer0Team1_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(labelAnswer0Team1, _team1Color, e);
+        }
+
+        private void labelAnswer1Team1_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(labelAnswer1Team1, _team1Color, e);
+        }
+
+        private void labelAnswer2Team1_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(labelAnswer2Team1, _team1Color, e);
+        }
+
+        private void labelAnswer3Team1_Paint(object sender, PaintEventArgs e)
+        {
+            PaintRoundEdges(labelAnswer3Team1, _team1Color, e);
         }
     }
 }

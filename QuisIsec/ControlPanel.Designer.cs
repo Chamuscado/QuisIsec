@@ -49,6 +49,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.CategoryListDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.startGameWinButton = new MetroFramework.Controls.MetroButton();
+            this.loadFilesButton = new MetroFramework.Controls.MetroButton();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.Team0ColorPicker = new MetroColorPicker.MetroColorPicker();
+            this.teamPoints0TextBox = new MetroFramework.Controls.MetroTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.Team1ColorPicker = new MetroColorPicker.MetroColorPicker();
             this.teamPoints1TextBox = new MetroFramework.Controls.MetroTextBox();
@@ -59,35 +65,33 @@
             this.Equipa1RespostaB = new MetroFramework.Controls.MetroRadioButton();
             this.Equipa1RespostaC = new MetroFramework.Controls.MetroRadioButton();
             this.Equipa1RespostaD = new MetroFramework.Controls.MetroRadioButton();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.teamName1 = new System.Windows.Forms.TextBox();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.teamName0 = new System.Windows.Forms.TextBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Equipa0RespostaD = new MetroFramework.Controls.MetroRadioButton();
             this.Equipa0RespostaC = new MetroFramework.Controls.MetroRadioButton();
             this.Equipa0RespostaB = new MetroFramework.Controls.MetroRadioButton();
             this.Equipa0RespostaA = new MetroFramework.Controls.MetroRadioButton();
             this.Equipa0NenhumaResposta = new MetroFramework.Controls.MetroRadioButton();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.Team0ColorPicker = new MetroColorPicker.MetroColorPicker();
-            this.teamPoints0TextBox = new MetroFramework.Controls.MetroTextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.loadFilesButton = new MetroFramework.Controls.MetroButton();
-            this.startGameWinButton = new MetroFramework.Controls.MetroButton();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.teamName1 = new System.Windows.Forms.TextBox();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.teamName0 = new System.Windows.Forms.TextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.resetTimerButton = new System.Windows.Forms.Button();
+            this.startTimerButton = new System.Windows.Forms.Button();
+            this.stopTimerButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryListDataGridView)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -98,6 +102,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.CategoryListDataGridView, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel8, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -355,6 +360,75 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(381, 229);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
+            // startGameWinButton
+            // 
+            this.startGameWinButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.startGameWinButton.Location = new System.Drawing.Point(222, 3);
+            this.startGameWinButton.Name = "startGameWinButton";
+            this.startGameWinButton.Size = new System.Drawing.Size(127, 23);
+            this.startGameWinButton.TabIndex = 12;
+            this.startGameWinButton.Text = "Iniciar Janela de Jogo";
+            this.startGameWinButton.Click += new System.EventHandler(this.startGameWinButton_Click);
+            // 
+            // loadFilesButton
+            // 
+            this.loadFilesButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.loadFilesButton.Location = new System.Drawing.Point(31, 3);
+            this.loadFilesButton.Name = "loadFilesButton";
+            this.loadFilesButton.Size = new System.Drawing.Size(127, 23);
+            this.loadFilesButton.TabIndex = 11;
+            this.loadFilesButton.Text = "Carregar ficheiros";
+            this.loadFilesButton.Click += new System.EventHandler(this.loadFilesButton_Click);
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.Controls.Add(this.Team0ColorPicker, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.teamPoints0TextBox, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 200);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(184, 26);
+            this.tableLayoutPanel6.TabIndex = 5;
+            // 
+            // Team0ColorPicker
+            // 
+            this.Team0ColorPicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Team0ColorPicker.BackColor = System.Drawing.Color.Transparent;
+            this.Team0ColorPicker.ColorInitial = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Team0ColorPicker.Location = new System.Drawing.Point(125, 3);
+            this.Team0ColorPicker.Name = "Team0ColorPicker";
+            this.Team0ColorPicker.Size = new System.Drawing.Size(56, 20);
+            this.Team0ColorPicker.TabIndex = 0;
+            this.Team0ColorPicker.ColorChanged += new MetroColorPicker.MetroColorPicker.ColorChangedEventHandler(this.Team0ColorPicker_ColorChanged);
+            // 
+            // teamPoints0TextBox
+            // 
+            this.teamPoints0TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.teamPoints0TextBox.Location = new System.Drawing.Point(64, 3);
+            this.teamPoints0TextBox.Name = "teamPoints0TextBox";
+            this.teamPoints0TextBox.Size = new System.Drawing.Size(55, 20);
+            this.teamPoints0TextBox.TabIndex = 10;
+            this.teamPoints0TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.teamPoints0TextBox.TextChanged += new System.EventHandler(this.teamPoints0TextBox_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Location = new System.Drawing.Point(3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 26);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Pontos/Cor";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 3;
@@ -391,7 +465,7 @@
             this.teamPoints1TextBox.Size = new System.Drawing.Size(55, 20);
             this.teamPoints1TextBox.TabIndex = 10;
             this.teamPoints1TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.teamPoints1TextBox.Click += new System.EventHandler(this.teamPoints1TextBox_Click);
+            this.teamPoints1TextBox.TextChanged += new System.EventHandler(this.teamPoints1TextBox_TextChanged);
             // 
             // label8
             // 
@@ -417,7 +491,7 @@
             this.groupBox2.Size = new System.Drawing.Size(185, 133);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Resposta Equipa 1";
             // 
             // Equipa1NenhumaResposta
             // 
@@ -429,6 +503,7 @@
             this.Equipa1NenhumaResposta.TabStop = true;
             this.Equipa1NenhumaResposta.Text = "Nenhuma";
             this.Equipa1NenhumaResposta.UseVisualStyleBackColor = true;
+            this.Equipa1NenhumaResposta.CheckedChanged += new System.EventHandler(this.Equipa1NenhumaResposta_CheckedChanged);
             // 
             // Equipa1RespostaA
             // 
@@ -440,6 +515,7 @@
             this.Equipa1RespostaA.TabStop = true;
             this.Equipa1RespostaA.Text = "A";
             this.Equipa1RespostaA.UseVisualStyleBackColor = true;
+            this.Equipa1RespostaA.CheckedChanged += new System.EventHandler(this.Equipa1RespostaA_CheckedChanged);
             // 
             // Equipa1RespostaB
             // 
@@ -451,6 +527,7 @@
             this.Equipa1RespostaB.TabStop = true;
             this.Equipa1RespostaB.Text = "B";
             this.Equipa1RespostaB.UseVisualStyleBackColor = true;
+            this.Equipa1RespostaB.CheckedChanged += new System.EventHandler(this.Equipa1RespostaB_CheckedChanged);
             // 
             // Equipa1RespostaC
             // 
@@ -462,6 +539,7 @@
             this.Equipa1RespostaC.TabStop = true;
             this.Equipa1RespostaC.Text = "C";
             this.Equipa1RespostaC.UseVisualStyleBackColor = true;
+            this.Equipa1RespostaC.CheckedChanged += new System.EventHandler(this.Equipa1RespostaC_CheckedChanged);
             // 
             // Equipa1RespostaD
             // 
@@ -473,6 +551,82 @@
             this.Equipa1RespostaD.TabStop = true;
             this.Equipa1RespostaD.Text = "D";
             this.Equipa1RespostaD.UseVisualStyleBackColor = true;
+            this.Equipa1RespostaD.CheckedChanged += new System.EventHandler(this.Equipa1RespostaD_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Equipa0RespostaD);
+            this.groupBox1.Controls.Add(this.Equipa0RespostaC);
+            this.groupBox1.Controls.Add(this.Equipa0RespostaB);
+            this.groupBox1.Controls.Add(this.Equipa0RespostaA);
+            this.groupBox1.Controls.Add(this.Equipa0NenhumaResposta);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 61);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(184, 133);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Resposta Equipa 0";
+            // 
+            // Equipa0RespostaD
+            // 
+            this.Equipa0RespostaD.AutoSize = true;
+            this.Equipa0RespostaD.Location = new System.Drawing.Point(6, 103);
+            this.Equipa0RespostaD.Name = "Equipa0RespostaD";
+            this.Equipa0RespostaD.Size = new System.Drawing.Size(31, 15);
+            this.Equipa0RespostaD.TabIndex = 3;
+            this.Equipa0RespostaD.TabStop = true;
+            this.Equipa0RespostaD.Text = "D";
+            this.Equipa0RespostaD.UseVisualStyleBackColor = true;
+            this.Equipa0RespostaD.CheckedChanged += new System.EventHandler(this.Equipa0RespostaD_CheckedChanged);
+            // 
+            // Equipa0RespostaC
+            // 
+            this.Equipa0RespostaC.AutoSize = true;
+            this.Equipa0RespostaC.Location = new System.Drawing.Point(6, 82);
+            this.Equipa0RespostaC.Name = "Equipa0RespostaC";
+            this.Equipa0RespostaC.Size = new System.Drawing.Size(31, 15);
+            this.Equipa0RespostaC.TabIndex = 2;
+            this.Equipa0RespostaC.TabStop = true;
+            this.Equipa0RespostaC.Text = "C";
+            this.Equipa0RespostaC.UseVisualStyleBackColor = true;
+            this.Equipa0RespostaC.CheckedChanged += new System.EventHandler(this.Equipa0RespostaC_CheckedChanged);
+            // 
+            // Equipa0RespostaB
+            // 
+            this.Equipa0RespostaB.AutoSize = true;
+            this.Equipa0RespostaB.Location = new System.Drawing.Point(6, 61);
+            this.Equipa0RespostaB.Name = "Equipa0RespostaB";
+            this.Equipa0RespostaB.Size = new System.Drawing.Size(30, 15);
+            this.Equipa0RespostaB.TabIndex = 1;
+            this.Equipa0RespostaB.TabStop = true;
+            this.Equipa0RespostaB.Text = "B";
+            this.Equipa0RespostaB.UseVisualStyleBackColor = true;
+            this.Equipa0RespostaB.CheckedChanged += new System.EventHandler(this.Equipa0RespostaB_CheckedChanged);
+            // 
+            // Equipa0RespostaA
+            // 
+            this.Equipa0RespostaA.AutoSize = true;
+            this.Equipa0RespostaA.Location = new System.Drawing.Point(6, 40);
+            this.Equipa0RespostaA.Name = "Equipa0RespostaA";
+            this.Equipa0RespostaA.Size = new System.Drawing.Size(31, 15);
+            this.Equipa0RespostaA.TabIndex = 0;
+            this.Equipa0RespostaA.TabStop = true;
+            this.Equipa0RespostaA.Text = "A";
+            this.Equipa0RespostaA.UseVisualStyleBackColor = true;
+            this.Equipa0RespostaA.CheckedChanged += new System.EventHandler(this.Equipa0RespostaA_CheckedChanged);
+            // 
+            // Equipa0NenhumaResposta
+            // 
+            this.Equipa0NenhumaResposta.AutoSize = true;
+            this.Equipa0NenhumaResposta.Location = new System.Drawing.Point(6, 19);
+            this.Equipa0NenhumaResposta.Name = "Equipa0NenhumaResposta";
+            this.Equipa0NenhumaResposta.Size = new System.Drawing.Size(76, 15);
+            this.Equipa0NenhumaResposta.TabIndex = 0;
+            this.Equipa0NenhumaResposta.TabStop = true;
+            this.Equipa0NenhumaResposta.Text = "Nenhuma";
+            this.Equipa0NenhumaResposta.UseVisualStyleBackColor = true;
+            this.Equipa0NenhumaResposta.CheckedChanged += new System.EventHandler(this.Equipa0NenhumaResposta_CheckedChanged);
             // 
             // tableLayoutPanel5
             // 
@@ -546,144 +700,54 @@
             this.metroLabel1.Text = "Equipa 0";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox1
+            // tableLayoutPanel8
             // 
-            this.groupBox1.Controls.Add(this.Equipa0RespostaD);
-            this.groupBox1.Controls.Add(this.Equipa0RespostaC);
-            this.groupBox1.Controls.Add(this.Equipa0RespostaB);
-            this.groupBox1.Controls.Add(this.Equipa0RespostaA);
-            this.groupBox1.Controls.Add(this.Equipa0NenhumaResposta);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 61);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(184, 133);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Controls.Add(this.resetTimerButton, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.startTimerButton, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.stopTimerButton, 0, 2);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 238);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel8.TabIndex = 3;
             // 
-            // Equipa0RespostaD
+            // resetTimerButton
             // 
-            this.Equipa0RespostaD.AutoSize = true;
-            this.Equipa0RespostaD.Location = new System.Drawing.Point(6, 103);
-            this.Equipa0RespostaD.Name = "Equipa0RespostaD";
-            this.Equipa0RespostaD.Size = new System.Drawing.Size(31, 15);
-            this.Equipa0RespostaD.TabIndex = 3;
-            this.Equipa0RespostaD.TabStop = true;
-            this.Equipa0RespostaD.Text = "D";
-            this.Equipa0RespostaD.UseVisualStyleBackColor = true;
+            this.resetTimerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.resetTimerButton.Location = new System.Drawing.Point(62, 5);
+            this.resetTimerButton.Name = "resetTimerButton";
+            this.resetTimerButton.Size = new System.Drawing.Size(75, 23);
+            this.resetTimerButton.TabIndex = 0;
+            this.resetTimerButton.Text = "Reiniciar relógio";
+            this.resetTimerButton.UseVisualStyleBackColor = true;
+            this.resetTimerButton.Click += new System.EventHandler(this.resetTimerButton_Click);
             // 
-            // Equipa0RespostaC
+            // startTimerButton
             // 
-            this.Equipa0RespostaC.AutoSize = true;
-            this.Equipa0RespostaC.Location = new System.Drawing.Point(6, 82);
-            this.Equipa0RespostaC.Name = "Equipa0RespostaC";
-            this.Equipa0RespostaC.Size = new System.Drawing.Size(31, 15);
-            this.Equipa0RespostaC.TabIndex = 2;
-            this.Equipa0RespostaC.TabStop = true;
-            this.Equipa0RespostaC.Text = "C";
-            this.Equipa0RespostaC.UseVisualStyleBackColor = true;
+            this.startTimerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.startTimerButton.Location = new System.Drawing.Point(62, 38);
+            this.startTimerButton.Name = "startTimerButton";
+            this.startTimerButton.Size = new System.Drawing.Size(75, 23);
+            this.startTimerButton.TabIndex = 1;
+            this.startTimerButton.Text = "Iniciar Relógio";
+            this.startTimerButton.UseVisualStyleBackColor = true;
+            this.startTimerButton.Click += new System.EventHandler(this.startTimerButton_Click);
             // 
-            // Equipa0RespostaB
+            // stopTimerButton
             // 
-            this.Equipa0RespostaB.AutoSize = true;
-            this.Equipa0RespostaB.Location = new System.Drawing.Point(6, 61);
-            this.Equipa0RespostaB.Name = "Equipa0RespostaB";
-            this.Equipa0RespostaB.Size = new System.Drawing.Size(30, 15);
-            this.Equipa0RespostaB.TabIndex = 1;
-            this.Equipa0RespostaB.TabStop = true;
-            this.Equipa0RespostaB.Text = "B";
-            this.Equipa0RespostaB.UseVisualStyleBackColor = true;
-            // 
-            // Equipa0RespostaA
-            // 
-            this.Equipa0RespostaA.AutoSize = true;
-            this.Equipa0RespostaA.Location = new System.Drawing.Point(6, 40);
-            this.Equipa0RespostaA.Name = "Equipa0RespostaA";
-            this.Equipa0RespostaA.Size = new System.Drawing.Size(31, 15);
-            this.Equipa0RespostaA.TabIndex = 0;
-            this.Equipa0RespostaA.TabStop = true;
-            this.Equipa0RespostaA.Text = "A";
-            this.Equipa0RespostaA.UseVisualStyleBackColor = true;
-            // 
-            // Equipa0NenhumaResposta
-            // 
-            this.Equipa0NenhumaResposta.AutoSize = true;
-            this.Equipa0NenhumaResposta.Location = new System.Drawing.Point(6, 19);
-            this.Equipa0NenhumaResposta.Name = "Equipa0NenhumaResposta";
-            this.Equipa0NenhumaResposta.Size = new System.Drawing.Size(76, 15);
-            this.Equipa0NenhumaResposta.TabIndex = 0;
-            this.Equipa0NenhumaResposta.TabStop = true;
-            this.Equipa0NenhumaResposta.Text = "Nenhuma";
-            this.Equipa0NenhumaResposta.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 3;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.Controls.Add(this.Team0ColorPicker, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.teamPoints0TextBox, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 200);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(184, 26);
-            this.tableLayoutPanel6.TabIndex = 5;
-            // 
-            // Team0ColorPicker
-            // 
-            this.Team0ColorPicker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Team0ColorPicker.BackColor = System.Drawing.Color.Transparent;
-            this.Team0ColorPicker.ColorInitial = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Team0ColorPicker.Location = new System.Drawing.Point(125, 3);
-            this.Team0ColorPicker.Name = "Team0ColorPicker";
-            this.Team0ColorPicker.Size = new System.Drawing.Size(56, 20);
-            this.Team0ColorPicker.TabIndex = 0;
-            this.Team0ColorPicker.ColorChanged += new MetroColorPicker.MetroColorPicker.ColorChangedEventHandler(this.Team0ColorPicker_ColorChanged);
-            // 
-            // teamPoints0TextBox
-            // 
-            this.teamPoints0TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.teamPoints0TextBox.Location = new System.Drawing.Point(64, 3);
-            this.teamPoints0TextBox.Name = "teamPoints0TextBox";
-            this.teamPoints0TextBox.Size = new System.Drawing.Size(55, 20);
-            this.teamPoints0TextBox.TabIndex = 10;
-            this.teamPoints0TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.teamPoints0TextBox.TextChanged += new System.EventHandler(this.teamPoints0TextBox_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 26);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Pontos/Cor";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // loadFilesButton
-            // 
-            this.loadFilesButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.loadFilesButton.Location = new System.Drawing.Point(31, 3);
-            this.loadFilesButton.Name = "loadFilesButton";
-            this.loadFilesButton.Size = new System.Drawing.Size(127, 23);
-            this.loadFilesButton.TabIndex = 11;
-            this.loadFilesButton.Text = "Carregar ficheiros";
-            this.loadFilesButton.Click += new System.EventHandler(this.loadFilesButton_Click);
-            // 
-            // startGameWinButton
-            // 
-            this.startGameWinButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.startGameWinButton.Location = new System.Drawing.Point(222, 3);
-            this.startGameWinButton.Name = "startGameWinButton";
-            this.startGameWinButton.Size = new System.Drawing.Size(127, 23);
-            this.startGameWinButton.TabIndex = 12;
-            this.startGameWinButton.Text = "Iniciar Janela de Jogo";
-            this.startGameWinButton.Click += new System.EventHandler(this.startGameWinButton_Click);
+            this.stopTimerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.stopTimerButton.Location = new System.Drawing.Point(62, 71);
+            this.stopTimerButton.Name = "stopTimerButton";
+            this.stopTimerButton.Size = new System.Drawing.Size(75, 23);
+            this.stopTimerButton.TabIndex = 2;
+            this.stopTimerButton.Text = "Parar Relógio";
+            this.stopTimerButton.UseVisualStyleBackColor = true;
+            this.stopTimerButton.Click += new System.EventHandler(this.stopTimerButton_Click);
             // 
             // ControlPanel
             // 
@@ -699,18 +763,19 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryListDataGridView)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -745,7 +810,6 @@
         private MetroFramework.Controls.MetroRadioButton Equipa0RespostaB;
         private MetroFramework.Controls.MetroRadioButton Equipa0RespostaA;
         private MetroFramework.Controls.MetroRadioButton Equipa0NenhumaResposta;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private MetroFramework.Controls.MetroRadioButton Equipa1NenhumaResposta;
         private MetroFramework.Controls.MetroRadioButton Equipa1RespostaA;
         private MetroFramework.Controls.MetroRadioButton Equipa1RespostaB;
@@ -764,5 +828,9 @@
         private System.Windows.Forms.Label label7;
         private MetroFramework.Controls.MetroButton loadFilesButton;
         private MetroFramework.Controls.MetroButton startGameWinButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Button resetTimerButton;
+        private System.Windows.Forms.Button startTimerButton;
+        private System.Windows.Forms.Button stopTimerButton;
     }
 }

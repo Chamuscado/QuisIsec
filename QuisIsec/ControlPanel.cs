@@ -160,20 +160,12 @@ namespace QuisIsec
         {
             if (int.TryParse(Team0Points, out var points))
                 _controller.TeamPointsChanged(0, points);
-            else
-            {
-                MessageBox.Show(@"Apenas numeros!!!");
-            }
         }
 
-        private void teamPoints1TextBox_Click(object sender, EventArgs e)
+        private void teamPoints1TextBox_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(Team1Points, out var points))
                 _controller.TeamPointsChanged(1, points);
-            else
-            {
-                MessageBox.Show(@"Apenas numeros!!!");
-            }
         }
 
         private void loadFilesButton_Click(object sender, EventArgs e)
@@ -184,6 +176,85 @@ namespace QuisIsec
         private void startGameWinButton_Click(object sender, EventArgs e)
         {
             _controller.StartGameWin();
+        }
+
+        #region Answer Select
+
+        private void Equipa0NenhumaResposta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa0NenhumaResposta.Checked)
+                _controller.SetAnswer(0, Answer.None);
+        }
+
+        private void Equipa0RespostaA_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa0RespostaA.Checked)
+                _controller.SetAnswer(0, Answer.A);
+        }
+
+        private void Equipa0RespostaB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa0RespostaB.Checked)
+                _controller.SetAnswer(0, Answer.B);
+        }
+
+        private void Equipa0RespostaC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa0RespostaC.Checked)
+                _controller.SetAnswer(0, Answer.C);
+        }
+
+        private void Equipa0RespostaD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa0RespostaD.Checked)
+                _controller.SetAnswer(0, Answer.D);
+        }
+
+        private void Equipa1NenhumaResposta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa1NenhumaResposta.Checked)
+                _controller.SetAnswer(1, Answer.None);
+        }
+
+        private void Equipa1RespostaA_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa1RespostaA.Checked)
+                _controller.SetAnswer(1, Answer.A);
+        }
+
+        private void Equipa1RespostaB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa1RespostaB.Checked)
+                _controller.SetAnswer(1, Answer.B);
+        }
+
+        private void Equipa1RespostaC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa1RespostaC.Checked)
+                _controller.SetAnswer(1, Answer.C);
+        }
+
+        private void Equipa1RespostaD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Equipa1RespostaD.Checked)
+                _controller.SetAnswer(1, Answer.D);
+        }
+
+        #endregion
+
+        private void resetTimerButton_Click(object sender, EventArgs e)
+        {
+            _controller.RestTimer();
+        }
+
+        private void startTimerButton_Click(object sender, EventArgs e)
+        {
+            _controller.StartTimer();
+        }
+
+        private void stopTimerButton_Click(object sender, EventArgs e)
+        {
+            _controller.StopTimer();
         }
     }
 }
