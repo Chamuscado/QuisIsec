@@ -37,8 +37,10 @@ namespace QuisIsec
                 _teams[i] = new Team();
             }
 
-            _timer = new Timer();
-            _timer.Interval = StepTimer;
+            _timer = new Timer
+            {
+                Interval = StepTimer
+            };
             _timer.Tick += TimerPulse;
             _view = new ControlPanel();
             _view.SetController(this);

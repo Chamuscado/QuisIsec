@@ -33,27 +33,31 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.resposta_3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.labelAnswer3Team1 = new System.Windows.Forms.Label();
             this.labelAnswer3Team0 = new System.Windows.Forms.Label();
-            this.resposta_3 = new System.Windows.Forms.Label();
             this.D = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.A = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.resposta_0 = new System.Windows.Forms.Label();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.labelAnswer0Team1 = new System.Windows.Forms.Label();
             this.labelAnswer0Team0 = new System.Windows.Forms.Label();
-            this.resposta_0 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.resposta_1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.labelAnswer1Team1 = new System.Windows.Forms.Label();
             this.labelAnswer1Team0 = new System.Windows.Forms.Label();
-            this.resposta_1 = new System.Windows.Forms.Label();
             this.B = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.labelAnswer2Team1 = new System.Windows.Forms.Label();
             this.labelAnswer2Team0 = new System.Windows.Forms.Label();
@@ -75,15 +79,19 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.questPanel.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -146,8 +154,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.tableLayoutPanel14);
-            this.panel2.Controls.Add(this.resposta_3);
+            this.panel2.Controls.Add(this.tableLayoutPanel18);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(60, 10);
             this.panel2.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
@@ -155,29 +162,57 @@
             this.panel2.Size = new System.Drawing.Size(231, 94);
             this.panel2.TabIndex = 5;
             // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 1;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel18.Controls.Add(this.resposta_3, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel14, 0, 1);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 2;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(231, 94);
+            this.tableLayoutPanel18.TabIndex = 10;
+            // 
+            // resposta_3
+            // 
+            this.resposta_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.resposta_3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resposta_3.Location = new System.Drawing.Point(0, 10);
+            this.resposta_3.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
+            this.resposta_3.Name = "resposta_3";
+            this.resposta_3.Size = new System.Drawing.Size(221, 45);
+            this.resposta_3.TabIndex = 3;
+            this.resposta_3.Text = "Resposta 3";
+            this.resposta_3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resposta_3.Paint += new System.Windows.Forms.PaintEventHandler(this.resposta_3_Paint);
+            // 
             // tableLayoutPanel14
             // 
-            this.tableLayoutPanel14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel14.ColumnCount = 2;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.Controls.Add(this.labelAnswer3Team1, 1, 0);
             this.tableLayoutPanel14.Controls.Add(this.labelAnswer3Team0, 0, 0);
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 70);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 68);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(230, 26);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(225, 23);
             this.tableLayoutPanel14.TabIndex = 9;
             // 
             // labelAnswer3Team1
             // 
             this.labelAnswer3Team1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAnswer3Team1.Location = new System.Drawing.Point(135, 5);
+            this.labelAnswer3Team1.Location = new System.Drawing.Point(132, 5);
             this.labelAnswer3Team1.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
             this.labelAnswer3Team1.Name = "labelAnswer3Team1";
-            this.labelAnswer3Team1.Size = new System.Drawing.Size(75, 16);
+            this.labelAnswer3Team1.Size = new System.Drawing.Size(73, 13);
             this.labelAnswer3Team1.TabIndex = 8;
             this.labelAnswer3Team1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelAnswer3Team1.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer3Team1_Paint);
@@ -188,24 +223,10 @@
             this.labelAnswer3Team0.Location = new System.Drawing.Point(20, 5);
             this.labelAnswer3Team0.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
             this.labelAnswer3Team0.Name = "labelAnswer3Team0";
-            this.labelAnswer3Team0.Size = new System.Drawing.Size(75, 16);
+            this.labelAnswer3Team0.Size = new System.Drawing.Size(72, 13);
             this.labelAnswer3Team0.TabIndex = 7;
             this.labelAnswer3Team0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelAnswer3Team0.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer3Team0_Paint);
-            // 
-            // resposta_3
-            // 
-            this.resposta_3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.resposta_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.resposta_3.Location = new System.Drawing.Point(0, 10);
-            this.resposta_3.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
-            this.resposta_3.Name = "resposta_3";
-            this.resposta_3.Size = new System.Drawing.Size(231, 74);
-            this.resposta_3.TabIndex = 3;
-            this.resposta_3.Text = "Resposta 3";
-            this.resposta_3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // D
             // 
@@ -253,8 +274,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.tableLayoutPanel11);
-            this.panel1.Controls.Add(this.resposta_0);
+            this.panel1.Controls.Add(this.tableLayoutPanel15);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(60, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
@@ -262,44 +282,20 @@
             this.panel1.Size = new System.Drawing.Size(231, 94);
             this.panel1.TabIndex = 2;
             // 
-            // tableLayoutPanel11
+            // tableLayoutPanel15
             // 
-            this.tableLayoutPanel11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel11.ColumnCount = 2;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.labelAnswer0Team1, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.labelAnswer0Team0, 0, 0);
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 70);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(230, 26);
-            this.tableLayoutPanel11.TabIndex = 6;
-            // 
-            // labelAnswer0Team1
-            // 
-            this.labelAnswer0Team1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAnswer0Team1.Location = new System.Drawing.Point(135, 5);
-            this.labelAnswer0Team1.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.labelAnswer0Team1.Name = "labelAnswer0Team1";
-            this.labelAnswer0Team1.Size = new System.Drawing.Size(75, 16);
-            this.labelAnswer0Team1.TabIndex = 8;
-            this.labelAnswer0Team1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelAnswer0Team1.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer0Team1_Paint);
-            // 
-            // labelAnswer0Team0
-            // 
-            this.labelAnswer0Team0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAnswer0Team0.Location = new System.Drawing.Point(20, 5);
-            this.labelAnswer0Team0.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.labelAnswer0Team0.Name = "labelAnswer0Team0";
-            this.labelAnswer0Team0.Size = new System.Drawing.Size(75, 16);
-            this.labelAnswer0Team0.TabIndex = 7;
-            this.labelAnswer0Team0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelAnswer0Team0.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer0Team0_Paint);
+            this.tableLayoutPanel15.ColumnCount = 1;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.Controls.Add(this.resposta_0, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel11, 0, 1);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 2;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(231, 94);
+            this.tableLayoutPanel15.TabIndex = 7;
             // 
             // resposta_0
             // 
@@ -311,10 +307,49 @@
             this.resposta_0.Location = new System.Drawing.Point(0, 10);
             this.resposta_0.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
             this.resposta_0.Name = "resposta_0";
-            this.resposta_0.Size = new System.Drawing.Size(231, 74);
+            this.resposta_0.Size = new System.Drawing.Size(221, 45);
             this.resposta_0.TabIndex = 0;
             this.resposta_0.Text = "Resposta 0";
             this.resposta_0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resposta_0.Paint += new System.Windows.Forms.PaintEventHandler(this.resposta_0_Paint);
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.labelAnswer0Team1, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.labelAnswer0Team0, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 68);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(225, 23);
+            this.tableLayoutPanel11.TabIndex = 6;
+            // 
+            // labelAnswer0Team1
+            // 
+            this.labelAnswer0Team1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelAnswer0Team1.Location = new System.Drawing.Point(132, 5);
+            this.labelAnswer0Team1.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
+            this.labelAnswer0Team1.Name = "labelAnswer0Team1";
+            this.labelAnswer0Team1.Size = new System.Drawing.Size(73, 13);
+            this.labelAnswer0Team1.TabIndex = 8;
+            this.labelAnswer0Team1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnswer0Team1.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer0Team1_Paint);
+            // 
+            // labelAnswer0Team0
+            // 
+            this.labelAnswer0Team0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelAnswer0Team0.Location = new System.Drawing.Point(20, 5);
+            this.labelAnswer0Team0.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
+            this.labelAnswer0Team0.Name = "labelAnswer0Team0";
+            this.labelAnswer0Team0.Size = new System.Drawing.Size(72, 13);
+            this.labelAnswer0Team0.TabIndex = 7;
+            this.labelAnswer0Team0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnswer0Team0.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer0Team0_Paint);
             // 
             // tableLayoutPanel4
             // 
@@ -334,8 +369,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.tableLayoutPanel12);
-            this.panel4.Controls.Add(this.resposta_1);
+            this.panel4.Controls.Add(this.tableLayoutPanel16);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(60, 10);
             this.panel4.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
@@ -343,30 +377,58 @@
             this.panel4.Size = new System.Drawing.Size(231, 94);
             this.panel4.TabIndex = 3;
             // 
+            // tableLayoutPanel16
+            // 
+            this.tableLayoutPanel16.ColumnCount = 1;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel16.Controls.Add(this.resposta_1, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel12, 0, 1);
+            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 2;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(231, 94);
+            this.tableLayoutPanel16.TabIndex = 8;
+            // 
+            // resposta_1
+            // 
+            this.resposta_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.resposta_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resposta_1.Location = new System.Drawing.Point(0, 10);
+            this.resposta_1.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
+            this.resposta_1.Name = "resposta_1";
+            this.resposta_1.Size = new System.Drawing.Size(221, 45);
+            this.resposta_1.TabIndex = 1;
+            this.resposta_1.Text = "Resposta 1";
+            this.resposta_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resposta_1.Paint += new System.Windows.Forms.PaintEventHandler(this.resposta_1_Paint);
+            // 
             // tableLayoutPanel12
             // 
-            this.tableLayoutPanel12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel12.ColumnCount = 2;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.Controls.Add(this.labelAnswer1Team1, 1, 0);
             this.tableLayoutPanel12.Controls.Add(this.labelAnswer1Team0, 0, 0);
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 70);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 68);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(230, 26);
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(225, 23);
             this.tableLayoutPanel12.TabIndex = 7;
             // 
             // labelAnswer1Team1
             // 
             this.labelAnswer1Team1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAnswer1Team1.Location = new System.Drawing.Point(135, 5);
+            this.labelAnswer1Team1.Location = new System.Drawing.Point(132, 5);
             this.labelAnswer1Team1.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
             this.labelAnswer1Team1.Name = "labelAnswer1Team1";
-            this.labelAnswer1Team1.Size = new System.Drawing.Size(75, 16);
+            this.labelAnswer1Team1.Size = new System.Drawing.Size(73, 13);
             this.labelAnswer1Team1.TabIndex = 8;
             this.labelAnswer1Team1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelAnswer1Team1.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer1Team1_Paint);
@@ -377,24 +439,10 @@
             this.labelAnswer1Team0.Location = new System.Drawing.Point(20, 5);
             this.labelAnswer1Team0.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
             this.labelAnswer1Team0.Name = "labelAnswer1Team0";
-            this.labelAnswer1Team0.Size = new System.Drawing.Size(75, 16);
+            this.labelAnswer1Team0.Size = new System.Drawing.Size(72, 13);
             this.labelAnswer1Team0.TabIndex = 7;
             this.labelAnswer1Team0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelAnswer1Team0.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer1Team0_Paint);
-            // 
-            // resposta_1
-            // 
-            this.resposta_1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.resposta_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.resposta_1.Location = new System.Drawing.Point(0, 10);
-            this.resposta_1.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
-            this.resposta_1.Name = "resposta_1";
-            this.resposta_1.Size = new System.Drawing.Size(231, 74);
-            this.resposta_1.TabIndex = 1;
-            this.resposta_1.Text = "Resposta 1";
-            this.resposta_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // B
             // 
@@ -428,8 +476,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.tableLayoutPanel13);
-            this.panel3.Controls.Add(this.resposta_2);
+            this.panel3.Controls.Add(this.tableLayoutPanel17);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(60, 10);
             this.panel3.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
@@ -437,29 +484,44 @@
             this.panel3.Size = new System.Drawing.Size(231, 94);
             this.panel3.TabIndex = 3;
             // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 1;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel13, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.resposta_2, 0, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 2;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(231, 94);
+            this.tableLayoutPanel17.TabIndex = 9;
+            // 
             // tableLayoutPanel13
             // 
-            this.tableLayoutPanel13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel13.ColumnCount = 2;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.Controls.Add(this.labelAnswer2Team1, 1, 0);
             this.tableLayoutPanel13.Controls.Add(this.labelAnswer2Team0, 0, 0);
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(0, 70);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 68);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(230, 26);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(225, 23);
             this.tableLayoutPanel13.TabIndex = 9;
             // 
             // labelAnswer2Team1
             // 
             this.labelAnswer2Team1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelAnswer2Team1.Location = new System.Drawing.Point(135, 5);
+            this.labelAnswer2Team1.Location = new System.Drawing.Point(132, 5);
             this.labelAnswer2Team1.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
             this.labelAnswer2Team1.Name = "labelAnswer2Team1";
-            this.labelAnswer2Team1.Size = new System.Drawing.Size(75, 16);
+            this.labelAnswer2Team1.Size = new System.Drawing.Size(73, 13);
             this.labelAnswer2Team1.TabIndex = 8;
             this.labelAnswer2Team1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelAnswer2Team1.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer2Team1_Paint);
@@ -470,24 +532,23 @@
             this.labelAnswer2Team0.Location = new System.Drawing.Point(20, 5);
             this.labelAnswer2Team0.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
             this.labelAnswer2Team0.Name = "labelAnswer2Team0";
-            this.labelAnswer2Team0.Size = new System.Drawing.Size(75, 16);
+            this.labelAnswer2Team0.Size = new System.Drawing.Size(72, 13);
             this.labelAnswer2Team0.TabIndex = 7;
             this.labelAnswer2Team0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelAnswer2Team0.Paint += new System.Windows.Forms.PaintEventHandler(this.labelAnswer2Team0_Paint);
             // 
             // resposta_2
             // 
-            this.resposta_2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.resposta_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.resposta_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resposta_2.Location = new System.Drawing.Point(0, 10);
             this.resposta_2.Margin = new System.Windows.Forms.Padding(0, 10, 10, 10);
             this.resposta_2.Name = "resposta_2";
-            this.resposta_2.Size = new System.Drawing.Size(231, 74);
+            this.resposta_2.Size = new System.Drawing.Size(221, 45);
             this.resposta_2.TabIndex = 2;
             this.resposta_2.Text = "Resposta 2";
             this.resposta_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resposta_2.Paint += new System.Windows.Forms.PaintEventHandler(this.resposta_2_Paint);
             // 
             // C
             // 
@@ -536,10 +597,11 @@
             this.preguntaLabel.Location = new System.Drawing.Point(6, 7);
             this.preguntaLabel.Margin = new System.Windows.Forms.Padding(10);
             this.preguntaLabel.Name = "preguntaLabel";
-            this.preguntaLabel.Size = new System.Drawing.Size(614, 127);
+            this.preguntaLabel.Size = new System.Drawing.Size(614, 100);
             this.preguntaLabel.TabIndex = 4;
             this.preguntaLabel.Text = "Pregunta";
             this.preguntaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.preguntaLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.preguntaLabel_Paint);
             // 
             // tableLayoutPanel7
             // 
@@ -681,23 +743,28 @@
             this.Name = "QuIsec";
             this.Text = "QuISEC";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuisIsec_FormClosing);
+            this.Resize += new System.EventHandler(this.QuIsec_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
             this.questPanel.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -752,6 +819,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Label labelAnswer2Team1;
         private System.Windows.Forms.Label labelAnswer2Team0;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
     }
 }
 

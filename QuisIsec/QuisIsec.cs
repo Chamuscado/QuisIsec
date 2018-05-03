@@ -1,5 +1,6 @@
 ﻿//#define TablePanelBlue
 
+#define TextAutoSize
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -11,6 +12,13 @@ namespace QuisIsec
     public partial class QuIsec : MetroFramework.Forms.MetroForm, IGameView
     {
         private GameViewController _controller;
+        public int LabelsAnswerCornerRadius { get; set; }
+        public int LabelsCategoryCornerRadius { get; set; }
+        public int TextHeightMargin { get; set; } = 10;
+        public int TextWidthMargin { get; set; } = 10;
+
+        public float RadiosFactor { get; set; } = 1.2f;
+
 
         public void SetController(GameViewController controller)
         {
@@ -274,41 +282,48 @@ namespace QuisIsec
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel1, _backColorBackPanel, e);
+            PaintRoundEdges(tableLayoutPanel1, _backColorBackPanel, e, resizeText: false);
         }
 
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel3, _backColorAnswer, e);
+            PaintRoundEdges(tableLayoutPanel3, _backColorAnswer, e, resizeText: false);
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel4, _backColorAnswer, e);
+            PaintRoundEdges(tableLayoutPanel4, _backColorAnswer, e, resizeText: false);
         }
 
         private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel5, _backColorAnswer, e);
+            PaintRoundEdges(tableLayoutPanel5, _backColorAnswer, e, resizeText: false);
         }
 
         private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel6, _backColorAnswer, e);
+            PaintRoundEdges(tableLayoutPanel6, _backColorAnswer, e, resizeText: false);
         }
 
-        private void PaintRoundEdges(Control graphElement, Color color, PaintEventArgs e, int cornerRadius = 40)
+        private void PaintRoundEdges(Control graphElement, Color color, PaintEventArgs e, int cornerRadius = 40,
+            bool resizeText = true)
         {
-            using (var graphicsPath = _getRoundRectangle(graphElement.ClientRectangle, cornerRadius))
-            {
-                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                using (var brush = new SolidBrush(color))
-                    e.Graphics.FillPath(brush, graphicsPath);
-                using (var pen = new Pen(color, 1.0f))
-                    e.Graphics.DrawPath(pen, graphicsPath);
-                TextRenderer.DrawText(e.Graphics, graphElement.Text, graphElement.Font, graphElement.ClientRectangle,
-                    graphElement.ForeColor);
-            }
+            if (cornerRadius > 0)
+
+                using (var graphicsPath = _getRoundRectangle(graphElement.ClientRectangle, cornerRadius))
+                {
+                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    using (var brush = new SolidBrush(color))
+                        e.Graphics.FillPath(brush, graphicsPath);
+                    using (var pen = new Pen(color, 1.0f))
+                        e.Graphics.DrawPath(pen, graphicsPath);
+                    TextRenderer.DrawText(e.Graphics, graphElement.Text, graphElement.Font,
+                        graphElement.ClientRectangle,
+                        graphElement.ForeColor);
+                }
+
+            if (resizeText && graphElement.Text.Any())
+                Lables_TextAutoSize(graphElement, e);
         }
 
         private GraphicsPath _getRoundRectangle(Rectangle rectangle, int cornerRadius)
@@ -328,7 +343,7 @@ namespace QuisIsec
 
         private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(tableLayoutPanel8, _backColorBackPanel, e);
+            PaintRoundEdges(tableLayoutPanel8, _backColorBackPanel, e, resizeText: false);
         }
 
         private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)
@@ -336,27 +351,27 @@ namespace QuisIsec
 #if TablePanelBlue
             PaintRoundEdges(tableLayoutPanel9, _backColorPointsPanel, e);
 #else
-            PaintRoundEdges(tableLayoutPanel9, Team0Color, e);
+            PaintRoundEdges(tableLayoutPanel9, Team0Color, e, resizeText: false);
 #endif
         }
 
         private void tableLayoutPanel10_Paint(object sender, PaintEventArgs e)
         {
 #if TablePanelBlue
-            PaintRoundEdges(tableLayoutPanel10, _backColorPointsPanel, e);
+            PaintRoundEdges(tableLayoutPanel10, _backColorPointsPanel, e, resizeText: false);
 #else
-            PaintRoundEdges(tableLayoutPanel10, Team1Color, e);
+            PaintRoundEdges(tableLayoutPanel10, Team1Color, e, resizeText: false);
 #endif
         }
 
         private void categoryLabel_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(categoryLabel, _backColorCategoryLabel, e);
+            PaintRoundEdges(categoryLabel, _backColorCategoryLabel, e, LabelsCategoryCornerRadius);
         }
 
         private void questpanel_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(questPanel, _backColorQuest, e);
+            PaintRoundEdges(questPanel, _backColorQuest, e, resizeText: false);
         }
 
         private void QuisIsec_FormClosing(object sender, FormClosingEventArgs e)
@@ -371,42 +386,104 @@ namespace QuisIsec
 
         private void labelAnswer0Team0_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(labelAnswer0Team0, _team0Color, e);
+            PaintRoundEdges(labelAnswer0Team0, _team0Color, e, LabelsAnswerCornerRadius);
         }
+
 
         private void labelAnswer1Team0_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(labelAnswer1Team0, _team0Color, e);
+            PaintRoundEdges(labelAnswer1Team0, _team0Color, e, LabelsAnswerCornerRadius);
         }
 
         private void labelAnswer2Team0_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(labelAnswer2Team0, _team0Color, e);
+            PaintRoundEdges(labelAnswer2Team0, _team0Color, e, LabelsAnswerCornerRadius);
         }
 
         private void labelAnswer3Team0_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(labelAnswer3Team0, _team0Color, e);
+            PaintRoundEdges(labelAnswer3Team0, _team0Color, e, LabelsAnswerCornerRadius);
         }
 
         private void labelAnswer0Team1_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(labelAnswer0Team1, _team1Color, e);
+            PaintRoundEdges(labelAnswer0Team1, _team1Color, e, LabelsAnswerCornerRadius);
         }
 
         private void labelAnswer1Team1_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(labelAnswer1Team1, _team1Color, e);
+            PaintRoundEdges(labelAnswer1Team1, _team1Color, e, LabelsAnswerCornerRadius);
         }
 
         private void labelAnswer2Team1_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(labelAnswer2Team1, _team1Color, e);
+            PaintRoundEdges(labelAnswer2Team1, _team1Color, e, LabelsAnswerCornerRadius);
         }
 
         private void labelAnswer3Team1_Paint(object sender, PaintEventArgs e)
         {
-            PaintRoundEdges(labelAnswer3Team1, _team1Color, e);
+            PaintRoundEdges(labelAnswer3Team1, _team1Color, e, LabelsAnswerCornerRadius);
+        }
+
+        private void QuIsec_Resize(object sender, EventArgs e)
+        {
+            LabelsCategoryCornerRadius = (int) (categoryLabel.Height / RadiosFactor);
+            LabelsAnswerCornerRadius = (int) (labelAnswer0Team0.Height / RadiosFactor);
+        }
+
+        private float stepFontSize = 0.5f;
+        private int ToloranceToResizeText = 5;
+
+        private void Lables_TextAutoSize(Control control, PaintEventArgs e)
+        {
+#if TextAutoSize
+            var textRender = TextRenderer.MeasureText(control.Text,
+                new Font(control.Font.FontFamily, control.Font.Size, control.Font.Style));
+            var prefectWidth = control.Width - TextWidthMargin * 2;
+            var prefectHeight = control.Height - TextHeightMargin * 2;
+
+            if (Math.Abs(prefectWidth - textRender.Width) > ToloranceToResizeText ||
+                Math.Abs(prefectHeight - textRender.Height) > ToloranceToResizeText)
+                control.Font = new Font(control.Font.FontFamily, stepFontSize,
+                    control.Font.Style);
+            while (true)
+            {
+                textRender = TextRenderer.MeasureText(control.Text,
+                    new Font(control.Font.FontFamily, control.Font.Size, control.Font.Style));
+
+                if (prefectWidth < textRender.Width || prefectHeight < textRender.Height)
+                    break;
+
+                control.Font = new Font(control.Font.FontFamily, control.Font.Size + stepFontSize,
+                    control.Font.Style);
+            }
+#endif
+        }
+
+
+        private void preguntaLabel_Paint(object sender, PaintEventArgs e)
+        {
+            Lables_TextAutoSize(preguntaLabel, e);
+        }
+
+        private void resposta_0_Paint(object sender, PaintEventArgs e)
+        {
+            Lables_TextAutoSize(resposta_0, e);
+        }
+
+        private void resposta_1_Paint(object sender, PaintEventArgs e)
+        {
+            Lables_TextAutoSize(resposta_1, e);
+        }
+
+        private void resposta_2_Paint(object sender, PaintEventArgs e)
+        {
+            Lables_TextAutoSize(resposta_2, e);
+        }
+
+        private void resposta_3_Paint(object sender, PaintEventArgs e)
+        {
+            Lables_TextAutoSize(resposta_3, e);
         }
     }
 }
