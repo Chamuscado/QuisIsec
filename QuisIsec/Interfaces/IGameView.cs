@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace QuisIsec
+namespace QuisIsec.Interfaces
 {
     public interface IGameView : IView
     {
@@ -20,5 +20,6 @@ namespace QuisIsec
         Answer Team0Answer { get; set; }
         Answer Team1Answer { get; set; }
         int Time { set; }
+        void ShowRightAnswer(string currentQuestRightAnswer);
     }
 }

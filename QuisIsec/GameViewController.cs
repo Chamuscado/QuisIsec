@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using QuisIsec.Interfaces;
 
 namespace QuisIsec
 {
@@ -117,6 +118,11 @@ namespace QuisIsec
         public void SetTime(int remainTime)
         {
             _view.Time = remainTime;
+        }
+
+        public void ShowRightAnswer(string currentQuestRightAnswer)
+        {
+            _view.ShowRightAnswer(currentQuestRightAnswer);
         }
     }
 }

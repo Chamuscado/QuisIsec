@@ -19,6 +19,7 @@ namespace QuisIsec
         private IControlPanelView _view;
         private GameViewController _gameController;
         private Question _nextQuest;
+        private Question _currentQuest;
         private Team[] _teams;
         private bool _autoShow = true;
         private string _filesPath;
@@ -185,6 +186,7 @@ namespace QuisIsec
             }
 
             _gameController.SetQuest(_nextQuest);
+            _currentQuest = _nextQuest;
             _used.Add(_nextQuest);
             _writerUseds.WriteLine(
                 $"{_nextQuest?.Category};{_nextQuest?.Quest};" +
@@ -304,6 +306,11 @@ namespace QuisIsec
         public void StopTimer()
         {
             _timer.Stop();
+        }
+
+        public void ShowRightAnswer()
+        {
+            _gameController.ShowRightAnswer(_currentQuest.RightAnswer);
         }
     }
 

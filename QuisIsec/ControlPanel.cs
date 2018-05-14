@@ -256,5 +256,10 @@ namespace QuisIsec
         {
             _controller.StopTimer();
         }
+
+        private void buttonShowRightAnswer_Click(object sender, EventArgs e)
+        {
+            _controller.ShowRightAnswer();
+        }
     }
 }

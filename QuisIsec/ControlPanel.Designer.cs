@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.CategoryTextBox = new MetroFramework.Controls.MetroTextBox();
@@ -307,30 +307,30 @@
             this.CategoryListDataGridView.AllowUserToAddRows = false;
             this.CategoryListDataGridView.AllowUserToDeleteRows = false;
             this.CategoryListDataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CategoryListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CategoryListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.CategoryListDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CategoryListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CategoryListDataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CategoryListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CategoryListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.CategoryListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CategoryListDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CategoryListDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.CategoryListDataGridView.Location = new System.Drawing.Point(390, 238);
             this.CategoryListDataGridView.Name = "CategoryListDataGridView";
             this.CategoryListDataGridView.RowHeadersVisible = false;
@@ -722,7 +722,7 @@
             // resetTimerButton
             // 
             this.resetTimerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.resetTimerButton.Location = new System.Drawing.Point(56, 17);
+            this.resetTimerButton.Location = new System.Drawing.Point(56, 18);
             this.resetTimerButton.Name = "resetTimerButton";
             this.resetTimerButton.Size = new System.Drawing.Size(75, 23);
             this.resetTimerButton.TabIndex = 0;
@@ -733,7 +733,7 @@
             // startTimerButton
             // 
             this.startTimerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.startTimerButton.Location = new System.Drawing.Point(56, 75);
+            this.startTimerButton.Location = new System.Drawing.Point(56, 77);
             this.startTimerButton.Name = "startTimerButton";
             this.startTimerButton.Size = new System.Drawing.Size(75, 23);
             this.startTimerButton.TabIndex = 1;
@@ -744,7 +744,7 @@
             // stopTimerButton
             // 
             this.stopTimerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.stopTimerButton.Location = new System.Drawing.Point(56, 135);
+            this.stopTimerButton.Location = new System.Drawing.Point(56, 136);
             this.stopTimerButton.Name = "stopTimerButton";
             this.stopTimerButton.Size = new System.Drawing.Size(75, 23);
             this.stopTimerButton.TabIndex = 2;
@@ -755,12 +755,13 @@
             // buttonShowRightAnswer
             // 
             this.buttonShowRightAnswer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonShowRightAnswer.Location = new System.Drawing.Point(214, 10);
+            this.buttonShowRightAnswer.Location = new System.Drawing.Point(214, 11);
             this.buttonShowRightAnswer.Name = "buttonShowRightAnswer";
             this.buttonShowRightAnswer.Size = new System.Drawing.Size(132, 37);
             this.buttonShowRightAnswer.TabIndex = 3;
             this.buttonShowRightAnswer.Text = "Mostrar Resposta Correta";
             this.buttonShowRightAnswer.UseVisualStyleBackColor = true;
+            this.buttonShowRightAnswer.Click += new System.EventHandler(this.buttonShowRightAnswer_Click);
             // 
             // ControlPanel
             // 
