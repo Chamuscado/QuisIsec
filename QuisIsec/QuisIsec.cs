@@ -264,6 +264,8 @@ namespace QuisIsec
                         timerLabel.Text = $"{(value / 1000):00}:{(value % 1000 / 10):00}";
                 else // mode than minute
                     timerLabel.Text = $"{value / 60000}:{(value % 60000 / 1000):00}";
+                
+                //timerLabel.Text = value.ToString();
             }
         }
 
@@ -518,7 +520,7 @@ namespace QuisIsec
         {
             PaintRoundEdges(labelAnswer0Team0, _team0Color, e, LabelsAnswerCornerRadius);
         }
-        
+
         private void labelAnswer1Team0_Paint(object sender, PaintEventArgs e)
         {
             PaintRoundEdges(labelAnswer1Team0, _team0Color, e, LabelsAnswerCornerRadius);
@@ -596,7 +598,9 @@ namespace QuisIsec
 
                 if (textSize.Width > prefectWidth || textSize.Height > prefectHeight)
                 {
-                    control.Font = new Font(control.Font.FontFamily, fontSize - 5, control.Font.Style);
+                    fontSize = fontSize - 5;
+                    if (fontSize < 0) fontSize = 1;
+                    control.Font = new Font(control.Font.FontFamily, fontSize, control.Font.Style);
                     break;
                 }
             }
@@ -702,6 +706,16 @@ namespace QuisIsec
         private void D_Resize(object sender, EventArgs e)
         {
             Lables_TextAutoSize(D);
+        }
+
+        private void team0Name_Resize(object sender, EventArgs e)
+        {
+            Lables_TextAutoSize(team0Name);
+        }
+
+        private void team1Name_Resize(object sender, EventArgs e)
+        {
+            Lables_TextAutoSize(team1Name);
         }
     }
 }

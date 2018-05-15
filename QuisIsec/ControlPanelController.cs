@@ -25,7 +25,7 @@ namespace QuisIsec
         private string _filesPath;
         private StreamWriter _writerUseds;
         private Timer _timer;
-        private const int StepTimer = 10; //milliseconds
+        private const int StepTimer = 1000; //milliseconds
         private int _milliseconds;
         private int _maxTime = 60000;
 
@@ -40,7 +40,7 @@ namespace QuisIsec
 
             _timer = new Timer
             {
-                Interval = StepTimer
+                Interval = StepTimer,
             };
             _timer.Tick += TimerPulse;
             _view = new ControlPanel();
@@ -310,7 +310,8 @@ namespace QuisIsec
 
         public void ShowRightAnswer()
         {
-            _gameController.ShowRightAnswer(_currentQuest.RightAnswer);
+            if (_currentQuest != null)
+                _gameController.ShowRightAnswer(_currentQuest.RightAnswer);
         }
     }
 

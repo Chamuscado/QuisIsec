@@ -32,7 +32,11 @@ namespace QuisIsec
             bool @return;
             using (var dialog = new OpenFileDialog
             {
-                InitialDirectory = @"C:\Users\João Leitão\Google Drive\Ética e Deontologia\QuISEC", //@"C:\",
+#if DEBUG
+                InitialDirectory = @"C:\Users\João Leitão\Google Drive\Ética e Deontologia\QuISEC",
+#else
+                InitialDirectory = @"C:\",
+#endif
                 Filter = @"CSVFile(*.csv)|*.csv|All files (*.*)|*.*",
                 Multiselect = true
             })
@@ -178,7 +182,7 @@ namespace QuisIsec
             _controller.StartGameWin();
         }
 
-        #region Answer Select
+#region Answer Select
 
         private void Equipa0NenhumaResposta_CheckedChanged(object sender, EventArgs e)
         {
@@ -240,7 +244,7 @@ namespace QuisIsec
                 _controller.SetAnswer(1, Answer.D);
         }
 
-        #endregion
+#endregion
 
         private void resetTimerButton_Click(object sender, EventArgs e)
         {
