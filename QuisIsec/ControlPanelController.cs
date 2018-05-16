@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using lib;
+using QuisIsec.Interfaces;
 
 namespace QuisIsec
 {
@@ -48,6 +48,9 @@ namespace QuisIsec
 
             _view.Show();
             _view.RefreshDataGridView(_categorys);
+            _view.TimeBox = (_maxTime / 1000).ToString();
+            _view.Team0Points = "0";
+            _view.Team1Points = "0";
         }
 
         public void LoadFiles()
@@ -283,6 +286,7 @@ namespace QuisIsec
         {
             _milliseconds = 0;
             _timer.Stop();
+            _gameController.SetTime(_maxTime);
         }
 
         public void StartTimer()
@@ -312,6 +316,11 @@ namespace QuisIsec
         {
             if (_currentQuest != null)
                 _gameController.ShowRightAnswer(_currentQuest.RightAnswer);
+        }
+
+        public void TimeChanged(int time)
+        {
+            _maxTime = time*1000;
         }
     }
 

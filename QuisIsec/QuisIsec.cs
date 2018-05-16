@@ -717,5 +717,20 @@ namespace QuisIsec
         {
             Lables_TextAutoSize(team1Name);
         }
+
+        private void team0Name_TextChanged(object sender, EventArgs e)
+        {
+            Lables_TextAutoSize(team0Name);
+        }
+
+        private void team1Name_TextChanged(object sender, EventArgs e)
+        {
+            Lables_TextAutoSize(team1Name);
+        }
+
+        private void timerLabel_TextChanged(object sender, EventArgs e)
+        {
+            Lables_TextAutoSize(timerLabel);
+        }
     }
 }

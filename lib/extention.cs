@@ -1,24 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 
-namespace QuIsec_Server
+namespace lib
 {
-    static class Program
+    public static class Extention
     {
-        /// <summary>
-        /// Ponto de entrada principal para o aplicativo.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            new ControlPanelController();
-            Application.Run();
-        }
-
         public static void Shuffle<T>(this IList<T> list)
         {
             var n = list.Count;
@@ -35,9 +22,7 @@ namespace QuIsec_Server
 
         public static IList<T> Clone<T>(this IList<T> listToClone) where T : ICloneable
         {
-            return listToClone.Select(item => (T) item.Clone()).ToList();
+            return listToClone.Select(item => (T)item.Clone()).ToList();
         }
-
-   
     }
 }

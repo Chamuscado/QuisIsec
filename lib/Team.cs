@@ -1,7 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
-namespace QuisIsec
+namespace lib
 {
+    [Serializable]
     public class Team
     {
         public string Name { get; set; }

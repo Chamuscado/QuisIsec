@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace QuisIsec
+namespace lib
 {
+    [Serializable]
     public class Category : IComparable<Category>
     {
         public string Name { get; }

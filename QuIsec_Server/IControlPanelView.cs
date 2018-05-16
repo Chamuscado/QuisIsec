@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using lib;
+using lib.Interfaces;
 
-namespace QuisIsec.Interfaces
+namespace QuIsec_Server
 {
     public interface IControlPanelView : IView
     {
@@ -16,6 +18,5 @@ namespace QuisIsec.Interfaces
         string Team0Points { get; set; }
         string Team1Points { get; set; }
         void RefreshDataGridView(ICollection<Category> categorys);
-        
     }
 }

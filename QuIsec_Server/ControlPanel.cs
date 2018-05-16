@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using lib;
 
-namespace QuisIsec
+namespace QuIsec_Server
 {
     public partial class ControlPanel : MetroFramework.Forms.MetroForm, IControlPanelView
     {
@@ -13,6 +14,7 @@ namespace QuisIsec
         public ControlPanel()
         {
             InitializeComponent();
+            startGameWinButton.Enabled = false;
         }
 
         public void SetController(ControlPanelController controller)
@@ -108,6 +110,12 @@ namespace QuisIsec
             set => teamPoints1TextBox.Text = value;
         }
 
+        public string TimeBox
+        {
+            get => timeBox.Text;
+            set => timeBox.Text = value;
+        }
+
         public void RefreshDataGridView(ICollection<Category> categorys)
         {
             var dataTable = new DataTable();
@@ -182,7 +190,7 @@ namespace QuisIsec
             _controller.StartGameWin();
         }
 
-#region Answer Select
+        #region Answer Select
 
         private void Equipa0NenhumaResposta_CheckedChanged(object sender, EventArgs e)
         {
@@ -244,7 +252,7 @@ namespace QuisIsec
                 _controller.SetAnswer(1, Answer.D);
         }
 
-#endregion
+        #endregion
 
         private void resetTimerButton_Click(object sender, EventArgs e)
         {
@@ -264,6 +272,27 @@ namespace QuisIsec
         private void buttonShowRightAnswer_Click(object sender, EventArgs e)
         {
             _controller.ShowRightAnswer();
+        }
+
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void timeBox_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(TimeBox, out var time))
+                _controller.TimeChanged(time);
         }
     }
 }

@@ -6,12 +6,11 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
-using QuisIsec.Interfaces;
+using lib;
 using Timer = System.Threading.Timer;
 
-namespace QuisIsec
+namespace QuIsec_Client
 {
     public partial class QuIsec : MetroFramework.Forms.MetroForm, IGameView
     {
@@ -269,33 +268,102 @@ namespace QuisIsec
             }
         }
 
-        public void ShowRightAnswer(string currentQuestRightAnswer)
+
+        private delegate void ShowRightAnswerThreadSafeDelegate(string currentQuestRightAnswer);
+
+        public void ShowRightAnswerThreadSafe(string currentQuestRightAnswer)
         {
-            //RandomizeRight(10000, 1000, 1000);
-            //Thread.Sleep(11000);
-            if (string.Compare(Answer0, currentQuestRightAnswer, StringComparison.InvariantCultureIgnoreCase) == 0)
+            if (InvokeRequired)
+                Invoke(new ShowRightAnswerThreadSafeDelegate(ShowRightAnswerThreadSafe), currentQuestRightAnswer);
+            else
             {
-                if (_answerBackColors.Length >= 4)
-                    _answerBackColors[0] = _rightAnswerColor;
-                tableLayoutPanel_AnswerA.Invalidate();
+                //RandomizeRight(10000, 1000, 1000);
+                //Thread.Sleep(11000);
+                if (string.Compare(Answer0, currentQuestRightAnswer, StringComparison.InvariantCultureIgnoreCase) == 0)
+                {
+                    if (_answerBackColors.Length >= 4)
+                        _answerBackColors[0] = _rightAnswerColor;
+                    tableLayoutPanel_AnswerA.Invalidate();
+                }
+                else if (string.Compare(Answer1, currentQuestRightAnswer, StringComparison.InvariantCultureIgnoreCase) == 0)
+                {
+                    if (_answerBackColors.Length >= 4)
+                        _answerBackColors[1] = _rightAnswerColor;
+                    tableLayoutPanel_AnswerB.Invalidate();
+                }
+                else if (string.Compare(Answer2, currentQuestRightAnswer, StringComparison.InvariantCultureIgnoreCase) == 0)
+                {
+                    if (_answerBackColors.Length >= 4)
+                        _answerBackColors[2] = _rightAnswerColor;
+                    tableLayoutPanel_AnswerC.Invalidate();
+                }
+                else if (string.Compare(Answer3, currentQuestRightAnswer, StringComparison.InvariantCultureIgnoreCase) == 0)
+                {
+                    if (_answerBackColors.Length >= 4)
+                        _answerBackColors[3] = _rightAnswerColor;
+                    tableLayoutPanel_AnswerD.Invalidate();
+                }
             }
-            else if (string.Compare(Answer1, currentQuestRightAnswer, StringComparison.InvariantCultureIgnoreCase) == 0)
+        }
+
+        
+        private delegate void ChangedTeamInformationDelegate(Team[] teams);
+
+        public void ChangedTeamInformationThreadSafe(Team[] teams)
+        {
+            if (InvokeRequired)
+                Invoke(new ChangedTeamInformationDelegate(ChangedTeamInformationThreadSafe), new object[]{ teams });
+            else
             {
-                if (_answerBackColors.Length >= 4)
-                    _answerBackColors[1] = _rightAnswerColor;
-                tableLayoutPanel_AnswerB.Invalidate();
+                if (Team0Name.CompareTo(teams[0].Name) != 0)
+                    Team0Name = teams[0].Name;
+                if (Team1Name.CompareTo(teams[1].Name) != 0)
+                    Team1Name = teams[1].Name;
+                if (Team0Points != teams[0].Points)
+                    Team0Points = teams[0].Points;
+                if (Team1Points != teams[1].Points)
+                    Team1Points = teams[1].Points;
+                if (!Team0Color.Equals(teams[0].Color))
+                    Team0Color = teams[0].Color;
+                if (!Team1Color.Equals(teams[1].Color))
+                    Team1Color = teams[1].Color;
+                if (Team0Answer != teams[0].Answer)
+                    Team0Answer = teams[0].Answer;
+                if (Team1Answer != teams[1].Answer)
+                    Team1Answer = teams[1].Answer;
             }
-            else if (string.Compare(Answer2, currentQuestRightAnswer, StringComparison.InvariantCultureIgnoreCase) == 0)
+        }
+
+
+
+        private delegate void SetTimeThreadSafeDelegate(int remainTime);
+
+        public void SetTimeThreadSafe(int remainTime)
+        {
+            if (InvokeRequired)
+                Invoke(new SetTimeThreadSafeDelegate(SetTimeThreadSafe), remainTime);
+            else
             {
-                if (_answerBackColors.Length >= 4)
-                    _answerBackColors[2] = _rightAnswerColor;
-                tableLayoutPanel_AnswerC.Invalidate();
+                Time = remainTime;
             }
-            else if (string.Compare(Answer3, currentQuestRightAnswer, StringComparison.InvariantCultureIgnoreCase) == 0)
+        }
+
+        private delegate void SetQuestThreadSafeDelegate(Question quest);
+
+        public void SetQuestThreadSafe(Question quest)
+        {
+            if (InvokeRequired)
+                Invoke(new SetQuestThreadSafeDelegate(SetQuestThreadSafe), quest);
+            else
             {
-                if (_answerBackColors.Length >= 4)
-                    _answerBackColors[3] = _rightAnswerColor;
-                tableLayoutPanel_AnswerD.Invalidate();
+                Quest = quest.Quest;
+                Category = quest.Category;
+                var list = quest.Answers.Clone();
+                list.Shuffle();
+                Answer0 = list[0];
+                Answer1 = list[1];
+                Answer2 = list[2];
+                Answer3 = list[3];
             }
         }
 
@@ -716,6 +784,21 @@ namespace QuisIsec
         private void team1Name_Resize(object sender, EventArgs e)
         {
             Lables_TextAutoSize(team1Name);
+        }
+
+        private void team0Name_TextChanged(object sender, EventArgs e)
+        {
+            Lables_TextAutoSize(team0Name);
+        }
+
+        private void team1Name_TextChanged(object sender, EventArgs e)
+        {
+            Lables_TextAutoSize(team1Name);
+        }
+
+        private void timerLabel_TextChanged(object sender, EventArgs e)
+        {
+            Lables_TextAutoSize(timerLabel);
         }
     }
 }

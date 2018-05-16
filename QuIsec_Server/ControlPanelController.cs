@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
 using System.Windows.Forms;
 using lib;
+using lib.Interfaces;
+using Timer = System.Windows.Forms.Timer;
 
-namespace QuisIsec
+namespace QuIsec_Server
 {
-    public class ControlPanelController
+    public class ControlPanelController : IControlPanelController
     {
         private const int NumberOfTemas = 2;
         private const string UsedNameFile = @"UsedQuestions.txt";
@@ -17,7 +22,7 @@ namespace QuisIsec
         private List<Category> _categorys = new List<Category>();
         private List<Question> _used = new List<Question>();
         private IControlPanelView _view;
-        private GameViewController _gameController;
+        private IGameViewController _gameController;
         private Question _nextQuest;
         private Question _currentQuest;
         private Team[] _teams;
@@ -28,10 +33,13 @@ namespace QuisIsec
         private const int StepTimer = 1000; //milliseconds
         private int _milliseconds;
         private int _maxTime = 60000;
-
+        private FileTransferServer _server;
 
         public ControlPanelController()
         {
+            _server = new FileTransferServer(this);
+            _server.Start();
+            _gameController = _server;
             _teams = new Team[NumberOfTemas];
             for (var i = 0; i < _teams.Length; i++)
             {
@@ -48,6 +56,9 @@ namespace QuisIsec
 
             _view.Show();
             _view.RefreshDataGridView(_categorys);
+            _view.TimeBox = (_maxTime / 1000).ToString();
+            _view.Team0Points = "0";
+            _view.Team1Points = "0";
         }
 
         public void LoadFiles()
@@ -214,7 +225,7 @@ namespace QuisIsec
         public bool CloseResquest()
         {
             _gameController?.End();
-
+            _server.Stop();
             Application.Exit();
             return false;
         }
@@ -261,13 +272,13 @@ namespace QuisIsec
 
         public void StartGameWin()
         {
-            if (_gameController == null)
-            {
-                _gameController = new GameViewController();
-                _gameController.SetParent(this);
-                _gameController.ChangedTeamInformation(_teams);
-            }
-            else _gameController.BringToFront();
+            //   if (_gameController == null)
+            //   {
+            //       _gameController = new GameViewController();
+            //       _gameController.SetParent(this);
+            //       _gameController.ChangedTeamInformation(_teams);
+            //   }
+            //   else _gameController.BringToFront();
         }
 
         public void SetAnswer(int i, Answer answer)
@@ -283,6 +294,7 @@ namespace QuisIsec
         {
             _milliseconds = 0;
             _timer.Stop();
+            _gameController.SetTime(_maxTime);
         }
 
         public void StartTimer()
@@ -313,14 +325,10 @@ namespace QuisIsec
             if (_currentQuest != null)
                 _gameController.ShowRightAnswer(_currentQuest.RightAnswer);
         }
-    }
 
-    public enum Answer
-    {
-        None = -1,
-        A = 0,
-        B = 1,
-        C = 2,
-        D = 3
+        public void TimeChanged(int time)
+        {
+            _maxTime = time * 1000;
+        }
     }
 }

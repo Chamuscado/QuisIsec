@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace QuisIsec
+namespace lib
 {
+    [Serializable]
     public class Question : IComparable<Question>, IEquatable<Question>
     {
         public List<string> Answers
@@ -86,5 +87,14 @@ namespace QuisIsec
                 return hashCode;
             }
         }
+    }
+
+    public enum Answer
+    {
+        None = -1,
+        A = 0,
+        B = 1,
+        C = 2,
+        D = 3
     }
 }

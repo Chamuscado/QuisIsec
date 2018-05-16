@@ -1,4 +1,5 @@
-﻿namespace QuisIsec.Interfaces
+﻿
+namespace lib.Interfaces
 {
     public interface IView
     {

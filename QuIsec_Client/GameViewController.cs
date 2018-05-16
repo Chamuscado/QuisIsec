@@ -1,43 +1,36 @@
 ﻿using System;
 using System.Drawing;
-using QuisIsec.Interfaces;
+using lib;
+using lib.Interfaces;
 
-namespace QuisIsec
+namespace QuIsec_Client
 {
-    public class GameViewController
+    public class GameViewController : IGameViewController
     {
         private IGameView _view;
-        private ControlPanelController _parent;
+        private FileTransferClient _parent;
 
-        public GameViewController()
+        public GameViewController(string ip)
         {
+            _parent = new FileTransferClient(this);
+            _parent.ip = ip;
+            _parent.Start();
             _view = new QuIsec();
             _view.SetController(this);
             _view.Show();
         }
 
-        public void SetParent(ControlPanelController parent)
-        {
-            _parent = parent;
-        }
-
         public void SetQuest(Question quest)
         {
-            _view.Quest = quest.Quest;
-            _view.Category = quest.Category;
-            var list = quest.Answers.Clone();
-            list.Shuffle();
-            _view.Answer0 = list[0];
-            _view.Answer1 = list[1];
-            _view.Answer2 = list[2];
-            _view.Answer3 = list[3];
+            _view.SetQuestThreadSafe(quest);
         }
 
         public bool End(bool fromView = false)
         {
             if (!fromView)
                 _view?.Close();
-            _parent?.GameViewControllerWasEnd();
+            _parent.Stop();
+            Environment.Exit(0);
             return false;
         }
 
@@ -91,38 +84,23 @@ namespace QuisIsec
 
         public void ChangedTeamInformation(Team[] teams)
         {
-            if (Team0Name.CompareTo(teams[0].Name) != 0)
-                Team0Name = teams[0].Name;
-            if (Team1Name.CompareTo(teams[1].Name) != 0)
-                Team1Name = teams[1].Name;
-            if (Team0Points != teams[0].Points)
-                Team0Points = teams[0].Points;
-            if (Team1Points != teams[1].Points)
-                Team1Points = teams[1].Points;
-            if (!Team0Color.Equals(teams[0].Color))
-                Team0Color = teams[0].Color;
-            if (!Team1Color.Equals(teams[1].Color))
-                Team1Color = teams[1].Color;
-            if (Team0Answer != teams[0].Answer)
-                Team0Answer = teams[0].Answer;
-            if (Team1Answer != teams[1].Answer)
-                Team1Answer = teams[1].Answer;
-        }
+            _view.ChangedTeamInformationThreadSafe(teams);
+         }
 
 
-        public void BringToFront()
+    public void BringToFront()
         {
             _view.BringToFront();
         }
 
         public void SetTime(int remainTime)
         {
-            _view.Time = remainTime;
+            _view.SetTimeThreadSafe(remainTime);
         }
 
         public void ShowRightAnswer(string currentQuestRightAnswer)
         {
-            _view.ShowRightAnswer(currentQuestRightAnswer);
+            _view.ShowRightAnswerThreadSafe(currentQuestRightAnswer);
         }
     }
 }

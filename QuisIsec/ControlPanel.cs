@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using QuisIsec.Interfaces;
 
 namespace QuisIsec
 {
@@ -106,6 +107,12 @@ namespace QuisIsec
         {
             get => teamPoints1TextBox.Text;
             set => teamPoints1TextBox.Text = value;
+        }
+
+        public string TimeBox
+        {
+            get => timeBox.Text;
+            set => timeBox.Text = value;
         }
 
         public void RefreshDataGridView(ICollection<Category> categorys)
@@ -264,6 +271,27 @@ namespace QuisIsec
         private void buttonShowRightAnswer_Click(object sender, EventArgs e)
         {
             _controller.ShowRightAnswer();
+        }
+
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void timeBox_TextChanged(object sender, EventArgs e)
+        {
+            if(int.TryParse(TimeBox, out var time))
+            _controller.TimeChanged(time);
         }
     }
 }

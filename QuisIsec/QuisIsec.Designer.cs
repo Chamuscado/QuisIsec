@@ -31,8 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuIsec));
             this.tableLayoutPanel_GameArea = new System.Windows.Forms.TableLayoutPanel();
             this.questPanel = new System.Windows.Forms.Panel();
-            this.categoryLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.preguntaLabel = new System.Windows.Forms.Label();
+            this.categoryLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel_AnswerArea = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_AnswerD = new System.Windows.Forms.TableLayoutPanel();
             this.resposta_3 = new System.Windows.Forms.Label();
@@ -70,6 +71,7 @@
             this.timerLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel_GameArea.SuspendLayout();
             this.questPanel.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel_AnswerArea.SuspendLayout();
             this.tableLayoutPanel_AnswerD.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
@@ -105,8 +107,7 @@
             // 
             // questPanel
             // 
-            this.questPanel.Controls.Add(this.categoryLabel);
-            this.questPanel.Controls.Add(this.preguntaLabel);
+            this.questPanel.Controls.Add(this.tableLayoutPanel1);
             this.questPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.questPanel.Location = new System.Drawing.Point(3, 3);
             this.questPanel.Name = "questPanel";
@@ -114,19 +115,21 @@
             this.questPanel.TabIndex = 4;
             this.questPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.questpanel_Paint);
             // 
-            // categoryLabel
+            // tableLayoutPanel1
             // 
-            this.categoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel.Location = new System.Drawing.Point(233, 100);
-            this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(167, 34);
-            this.categoryLabel.TabIndex = 5;
-            this.categoryLabel.Text = "Categoria";
-            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.categoryLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.categoryLabel_Paint);
-            this.categoryLabel.Resize += new System.EventHandler(this.categoryLabel_Resize);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.preguntaLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.categoryLabel, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(628, 141);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // preguntaLabel
             // 
@@ -136,14 +139,29 @@
             this.preguntaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.preguntaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.preguntaLabel.ForeColor = System.Drawing.Color.Black;
-            this.preguntaLabel.Location = new System.Drawing.Point(6, 7);
+            this.preguntaLabel.Location = new System.Drawing.Point(10, 10);
             this.preguntaLabel.Margin = new System.Windows.Forms.Padding(10);
             this.preguntaLabel.Name = "preguntaLabel";
-            this.preguntaLabel.Size = new System.Drawing.Size(614, 100);
+            this.preguntaLabel.Size = new System.Drawing.Size(608, 85);
             this.preguntaLabel.TabIndex = 4;
             this.preguntaLabel.Text = "Pregunta";
             this.preguntaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.preguntaLabel.Resize += new System.EventHandler(this.preguntaLabel_Resize);
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel.Location = new System.Drawing.Point(3, 105);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(622, 36);
+            this.categoryLabel.TabIndex = 5;
+            this.categoryLabel.Text = "Categoria";
+            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.categoryLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.categoryLabel_Paint);
+            this.categoryLabel.Resize += new System.EventHandler(this.categoryLabel_Resize);
             // 
             // tableLayoutPanel_AnswerArea
             // 
@@ -593,6 +611,7 @@
             this.team0Name.Size = new System.Drawing.Size(137, 29);
             this.team0Name.TabIndex = 2;
             this.team0Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.team0Name.TextChanged += new System.EventHandler(this.team0Name_TextChanged);
             this.team0Name.Resize += new System.EventHandler(this.team0Name_Resize);
             // 
             // team0Points
@@ -637,6 +656,7 @@
             this.team1Name.Size = new System.Drawing.Size(137, 29);
             this.team1Name.TabIndex = 2;
             this.team1Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.team1Name.TextChanged += new System.EventHandler(this.team1Name_TextChanged);
             this.team1Name.Resize += new System.EventHandler(this.team1Name_Resize);
             // 
             // team1Points
@@ -664,6 +684,7 @@
             this.timerLabel.TabIndex = 4;
             this.timerLabel.Text = "00:00";
             this.timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.timerLabel.TextChanged += new System.EventHandler(this.timerLabel_TextChanged);
             this.timerLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.timerLabel_Paint);
             // 
             // QuIsec
@@ -680,6 +701,7 @@
             this.Resize += new System.EventHandler(this.QuIsec_Resize);
             this.tableLayoutPanel_GameArea.ResumeLayout(false);
             this.questPanel.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel_AnswerArea.ResumeLayout(false);
             this.tableLayoutPanel_AnswerD.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
@@ -739,6 +761,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_AnswerC;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_AnswerD;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_AnswerB;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 

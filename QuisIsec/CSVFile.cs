@@ -1,10 +1,9 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace lib
+namespace QuisIsec
 {
     public class CsvFile : IDisposable
     {
